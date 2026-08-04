@@ -1,5 +1,11 @@
+import NavBar from "../components/Navbar.jsx";
+
 function Cart() {
-  return <h1>Cart page</h1>;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 }
 
 export default Cart;

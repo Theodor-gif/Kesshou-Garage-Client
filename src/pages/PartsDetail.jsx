@@ -1,5 +1,11 @@
+import NavBar from "../components/Navbar.jsx";
+
 function PartsDetail() {
-  return <h1>PartsDetail page</h1>;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 }
 
 export default PartsDetail;

@@ -1,5 +1,11 @@
+import NavBar from "../components/Navbar.jsx";
+
 function Model() {
-  return <h1>Model page</h1>;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 }
 
 export default Model;

@@ -88,6 +88,31 @@
   align-items: end;
 }
 
+.SearchIcon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.FavoriteIcon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.AvatarIcon {
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.CartIcon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
 .nav3 {
   flex: 1;
   display: flex;
@@ -97,5 +122,6 @@
 }
 
 .logo {
-  width: 75px;
+  width: 90px;
+  height: 90px;
 }

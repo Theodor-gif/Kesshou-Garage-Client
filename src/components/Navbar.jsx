@@ -1,27 +1,31 @@
-import logo from "../../public/images/logo/kessho-icon.png";
+import logo from "../assets/kessho-icon.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import style from "../../public/css/navbar.module.css";
+import style from "../css/navbar.module.css";
 
 function NavBar() {
   return (
     <nav className={style.navbar}>
       <div className={style.intro}>
         <section className={style.nav1}>
-          <img className={style.logo} src={logo} />
+          <img className={style.logo} src="/images/logo/kessho-icon.png" />
         </section>
         <section className={style.nav2}>
-          <SearchIcon />
+          <SearchIcon className={style.SearchIcon} />
           <Badge badgeContent={2} color="primary">
-            <FavoriteIcon />
+            <FavoriteIcon className={style.FavoriteIcon} />
           </Badge>
-          <Avatar src="/broken-image.jpg" alt=""></Avatar>
+          <Avatar
+            className={style.AvatarIcon}
+            src="/broken-image.jpg"
+            alt=""
+          ></Avatar>
           <Badge badgeContent={2} color="primary">
-            <ShoppingCartIcon />
+            <ShoppingCartIcon className={style.CartIcon} />
           </Badge>
         </section>
       </div>

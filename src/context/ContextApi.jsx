@@ -8,5 +8,30 @@ const api = axios.create({
 });
 
 export default function ContextProvider({ children }) {
-  return <contextData.Provider value={{}}>{children}</contextData.Provider>;
+  const [registration, setRegistration] = useState(true);
+  const [login, setLogin] = useState(false);
+
+  function registrationHandle() {
+    setRegistration(false);
+    setLogin(true);
+  }
+
+  function loginHandle() {
+    setRegistration(true);
+    setLogin(false);
+  }
+  return (
+    <contextData.Provider
+      value={{
+        registration,
+        setRegistration,
+        login,
+        setLogin,
+        registrationHandle,
+        loginHandle,
+      }}
+    >
+      {children}
+    </contextData.Provider>
+  );
 }

@@ -7,6 +7,6 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
-export function ContextProvider({ children }) {
+export default function ContextProvider({ children }) {
   return <contextData.Provider value={{}}>{children}</contextData.Provider>;
 }

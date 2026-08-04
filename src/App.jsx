@@ -6,6 +6,7 @@ import PartsPage from "./pages/Parts.jsx";
 import CartPage from "./pages/Cart.jsx";
 import FavoritePage from "./pages/Favorites.jsx";
 import RegisterLoginPage from "./pages/RegisterLogin.jsx";
+import PartsDetail from "./pages/PartsDetail.jsx";
 
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/parts" element={<PartsPage />}></Route>
         <Route path="/account" element={<RegisterLoginPage />}></Route>
         <Route path="/favorite" element={<FavoritePage />}></Route>
+        <Route path="/partsDetail" element={<PartsDetail />}></Route>
       </Routes>
     </main>
   );

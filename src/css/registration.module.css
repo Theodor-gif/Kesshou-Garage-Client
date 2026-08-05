@@ -1,0 +1,102 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: rgb(148, 148, 148);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registermain {
+  width: 30vw;
+  height: 100%;
+  background-color: var(--body-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registercontainer {
+  width: 80%;
+  margin-top: 100px;
+}
+
+.regtitle {
+  color: var(--emphasis-letter-border);
+  font-size: 2rem;
+}
+
+.regquestion {
+  display: flex;
+  margin: 15px 0;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+
+.regp {
+  color: rgb(148, 148, 148);
+}
+
+.regbtn1 {
+  color: #00e5ff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.reginfo {
+  color: rgb(148, 148, 148);
+}
+
+.regform {
+  display: flex;
+  flex-direction: column;
+}
+
+.reglabel {
+  font-size: 1.3rem;
+  margin: 7.5px 0;
+  color: rgb(148, 148, 148);
+}
+
+.reginput {
+  font-size: 1.1rem;
+  padding: 5px 0 5px 10px;
+  margin-bottom: 20px;
+}
+
+.regExtraInfo {
+  color: rgb(148, 148, 148);
+}
+
+.regbtnsub {
+  background-color: #c81e3a;
+  color: var(--navbar-bg);
+  border: none;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  width: 50%;
+  margin: 40px auto 0 auto;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.regExtraInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.regX {
+  color: var(--emphasis-letter-border);
+  margin-right: 10px;
+}
+
+.regLastInfo {
+  margin-left: 25px;
+}

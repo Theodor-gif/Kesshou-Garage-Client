@@ -11,3 +11,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.registerloginBg {
+  height: 100vh;
+  background-image: url("../assets/wp6543336-car-drifting-4k-desktop-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

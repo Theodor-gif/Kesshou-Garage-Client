@@ -1,58 +1,99 @@
 import { useContext } from "react";
 import { contextData } from "../context/ContextApi";
+import style from "../css/registration.module.css";
 
 function Registration() {
   const { registrationHandle } = useContext(contextData);
   return (
-    <div>
-      <h3>KESSHOU ID</h3>
-      <h3>REGISTRATION</h3>
-      <div>
-        <p>Do you already have a KESSHOU ID ? </p>
-        <p>
-          Log in <span onClick={() => registrationHandle()}>here</span>.
-        </p>
-      </div>
-      <p>
-        <span>*</span>Required fields
-      </p>
-      <form>
-        <label htmlFor="firstname">
-          First name<span>*</span>
-        </label>
-        <input id="firstname" type="text" name="firstname" value="" />
-        <label htmlFor="surname">
-          Surname<span>*</span>
-        </label>
-        <input id="surname" type="text" name="surname" value="" />
-        <label htmlFor="email">
-          E-mail<span>*</span>
-        </label>
-        <input id="email" type="email" name="eamil" value="" />
-        <label htmlFor="password">
-          Password<span>*</span>
-        </label>
-        <input id="password" type="password" name="paswword" value="" />
-        <div>
-          <p>
-            <span>X </span> Length between 10 and 40 characters.
+    <div className={style.registermain}>
+      <div className={style.registercontainer}>
+        <h3 className={style.regtitle}>KESSHOU ID</h3>
+        <h3 className={style.regtitle}>REGISTRATION</h3>
+        <div className={style.regquestion}>
+          <p className={style.regp}>Do you already have a KESSHOU ID ? </p>
+          <p className={style.regp}>
+            Log in{" "}
+            <span
+              className={style.regbtn1}
+              onClick={() => registrationHandle()}
+            >
+              here
+            </span>
+            .
           </p>
-          <p>
-            <span>X </span> {`At least one lowercase letter (az).`}
-          </p>
-          <p>
-            <span>X </span> {`At least one capital letter (AZ).`}
-          </p>
-          <p>
-            <span>X </span> {`At least one digit (0-9).`}
-          </p>
-          <p>
-            <span>X </span> At least one special character:
-          </p>
-          <p>{`-./',;&@#*)(_+:"~`}</p>
         </div>
-        <button type="submit">Register</button>
-      </form>
+        <p className={style.reginfo}>
+          <span>* </span>Required fields
+        </p>
+        <form className={style.regform}>
+          <label className={style.reglabel} htmlFor="firstname">
+            First name<span> *</span>
+          </label>
+          <input
+            className={style.reginput}
+            id="firstname"
+            type="text"
+            name="firstname"
+            value="Theodoros"
+          />
+          <label className={style.reglabel} htmlFor="surname">
+            Surname<span> *</span>
+          </label>
+          <input
+            className={style.reginput}
+            id="surname"
+            type="text"
+            name="surname"
+            value="Mitropoulos"
+          />
+          <label className={style.reglabel} htmlFor="email">
+            E-mail<span> *</span>
+          </label>
+          <input
+            className={style.reginput}
+            id="email"
+            type="email"
+            name="eamil"
+            value="theodor.mitropoulos@yahoo.com"
+          />
+          <label className={style.reglabel} htmlFor="password">
+            Password<span> *</span>
+          </label>
+          <input
+            className={style.reginput}
+            id="password"
+            type="password"
+            name="paswword"
+            value="10219Tm!!"
+          />
+          <div className={style.regExtraInfo}>
+            <p>
+              <span className={style.regX}>X </span> Length between 10 and 40
+              characters.
+            </p>
+            <p>
+              <span className={style.regX}>X </span>{" "}
+              {`At least one lowercase letter (az).`}
+            </p>
+            <p>
+              <span className={style.regX}>X </span>{" "}
+              {`At least one capital letter (AZ).`}
+            </p>
+            <p>
+              <span className={style.regX}>X </span>{" "}
+              {`At least one digit (0-9).`}
+            </p>
+            <p>
+              <span className={style.regX}>X </span> At least one special
+              character:
+            </p>
+            <p className={style.regLastInfo}>{`-./',;&@#*)(_+:"~`}</p>
+          </div>
+          <button className={style.regbtnsub} type="submit">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

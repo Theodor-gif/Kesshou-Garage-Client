@@ -1,0 +1,79 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: rgb(148, 148, 148);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logmain {
+  width: 30vw;
+  height: 100%;
+  background-color: var(--body-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logcontainer {
+  width: 80%;
+  margin-top: 100px;
+}
+
+.logtitle {
+  color: var(--emphasis-letter-border);
+  font-size: 2rem;
+}
+
+.logquestion {
+  display: flex;
+  margin: 15px 0;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+
+.logp {
+  color: rgb(148, 148, 148);
+}
+
+.logbtn1 {
+  color: #00e5ff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.logform {
+  display: flex;
+  flex-direction: column;
+}
+
+.loglabel {
+  font-size: 1.3rem;
+  margin: 7.5px 0;
+  color: rgb(148, 148, 148);
+}
+
+.loginput {
+  font-size: 1.1rem;
+  padding: 5px 0 5px 10px;
+  margin-bottom: 20px;
+}
+
+.logbtnsub {
+  background-color: #c81e3a;
+  color: var(--navbar-bg);
+  border: none;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  width: 50%;
+  margin: 40px auto 0 auto;
+  cursor: pointer;
+  font-size: 1.4rem;
+}

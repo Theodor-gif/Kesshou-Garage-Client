@@ -5,9 +5,3 @@
   --important-button: #c81e3a;
   --not-important: #3a4048;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}

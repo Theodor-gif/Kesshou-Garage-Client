@@ -1,18 +1,14 @@
 :root {
   --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
   --body-bg: #0b1a1f;
   --emphasis-letter-border: #00e5ff;
   --important-button: #c81e3a;
-  --not-important: rgb(148, 148, 148);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --not-important: #898989;
 }
 
 .logmain {
+  position: relative;
   width: 30vw;
   height: 100%;
   background-color: var(--body-bg);
@@ -76,4 +72,25 @@
   margin: 40px auto 0 auto;
   cursor: pointer;
   font-size: 1.4rem;
+}
+
+.logReturnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logArrow {
+  color: rgb(148, 148, 148);
+}
+
+.logBack {
+  text-decoration: none;
+  color: rgb(148, 148, 148);
+  font-size: 1.2rem;
 }

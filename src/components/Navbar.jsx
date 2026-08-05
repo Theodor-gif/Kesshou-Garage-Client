@@ -6,26 +6,42 @@ import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import style from "../css/navbar.module.css";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <nav className={style.navbar}>
       <div className={style.intro}>
         <section className={style.nav1}>
-          <img className={style.logo} src="/images/logo/kessho-icon.png" />
+          <img className={style.logo} src={logo} alt="logo" />
         </section>
         <section className={style.nav2}>
-          <SearchIcon className={style.SearchIcon} />
+          <SearchIcon className={style.SearchIcon} sx={{ fontSize: 30 }} />
           <Badge badgeContent={2} color="primary">
-            <FavoriteIcon className={style.FavoriteIcon} />
+            <FavoriteIcon
+              className={style.FavoriteIcon}
+              sx={{ fontSize: 30 }}
+            />
           </Badge>
-          <Avatar
-            className={style.AvatarIcon}
-            src="/broken-image.jpg"
-            alt=""
-          ></Avatar>
+          <Link className={style.navRoute} to="/account">
+            <Avatar
+              className={style.AvatarIcon}
+              src="/broken-image.jpg"
+              alt=""
+              sx={{
+                width: 30,
+                height: 30,
+                fontSize: 13,
+              }}
+            >
+              TM
+            </Avatar>
+          </Link>
           <Badge badgeContent={2} color="primary">
-            <ShoppingCartIcon className={style.CartIcon} />
+            <ShoppingCartIcon
+              className={style.CartIcon}
+              sx={{ fontSize: 30 }}
+            />
           </Badge>
         </section>
       </div>

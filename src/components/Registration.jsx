@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { contextData } from "../context/ContextApi";
 import style from "../css/registration.module.css";
+import { Link } from "react-router-dom";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 function Registration() {
   const { registrationHandle } = useContext(contextData);
@@ -93,6 +95,18 @@ function Registration() {
             Register
           </button>
         </form>
+      </div>
+      <div className={style.regReturnContainer}>
+        <KeyboardBackspaceIcon
+          className={style.regArrow}
+          sx={{
+            width: 30,
+            height: 30,
+          }}
+        />
+        <Link to="/" className={style.registerBack}>
+          Back to home
+        </Link>
       </div>
     </div>
   );

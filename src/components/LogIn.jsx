@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { contextData } from "../context/ContextApi";
 import style from "../css/login.module.css";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { Link } from "react-router-dom";
 
 function LogIn() {
   const { loginHandle } = useContext(contextData);
@@ -15,7 +17,6 @@ function LogIn() {
             <span className={style.logbtn1} onClick={() => loginHandle()}>
               here
             </span>
-            .
           </p>
         </div>
         <form className={style.logform}>
@@ -43,6 +44,18 @@ function LogIn() {
             Log in
           </button>
         </form>
+      </div>
+      <div className={style.logReturnContainer}>
+        <KeyboardBackspaceIcon
+          className={style.logArrow}
+          sx={{
+            width: 30,
+            height: 30,
+          }}
+        />
+        <Link to="/" className={style.logBack}>
+          Back to home
+        </Link>
       </div>
     </div>
   );

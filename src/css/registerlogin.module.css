@@ -7,15 +7,23 @@
 }
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 .registerloginBg {
+  position: relative;
   height: 100vh;
   background-image: url("../assets/wp6543336-car-drifting-4k-desktop-wallpapers.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.registerloginLogo {
+  position: absolute;
+  width: 100px;
+  right: 40px;
+  top: 40px;
 }

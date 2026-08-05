@@ -1,5 +1,6 @@
 :root {
   --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
   --body-bg: #0b1a1f;
   --emphasis-letter-border: #00e5ff;
   --important-button: #c81e3a;
@@ -7,8 +8,8 @@
 }
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -16,6 +17,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--navbar-bg);
+  width: 100%;
 }
 
 .intro {
@@ -37,7 +39,7 @@
 
 .navHome {
   text-decoration: none;
-  color: var(--not-important);
+  color: rgb(168, 168, 168);
   font-size: 1.3rem;
   transition: 0.5s;
 }
@@ -48,7 +50,7 @@
 
 .navModels {
   text-decoration: none;
-  color: var(--not-important);
+  color: rgb(148, 148, 148);
   font-size: 1.3rem;
   transition: 0.5s;
 }
@@ -59,7 +61,7 @@
 
 .navParts {
   text-decoration: none;
-  color: var(--not-important);
+  color: rgb(148, 148, 148);
   font-size: 1.3rem;
   transition: 0.5s;
 }
@@ -70,7 +72,7 @@
 
 .navAbout {
   text-decoration: none;
-  color: var(--not-important);
+  color: rgb(148, 148, 148);
   font-size: 1.3rem;
   transition: 0.5s;
 }
@@ -89,27 +91,22 @@
 }
 
 .SearchIcon {
-  width: 30px;
-  height: 30px;
   cursor: pointer;
 }
 
 .FavoriteIcon {
-  width: 30px;
-  height: 30px;
   cursor: pointer;
 }
 
+.navRoute {
+  text-decoration: none;
+}
+
 .AvatarIcon {
-  width: 30px;
-  height: 30px;
-  font-size: 0.8rem;
   cursor: pointer;
 }
 
 .CartIcon {
-  width: 30px;
-  height: 30px;
   cursor: pointer;
 }
 

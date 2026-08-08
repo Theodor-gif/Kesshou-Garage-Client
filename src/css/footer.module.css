@@ -1,7 +1,97 @@
 :root {
+  --navbar-bg: #d3e5f1;
   --navbar-footer-bg: #05080a;
   --body-bg: #0b1a1f;
   --emphasis-letter-border: #00e5ff;
   --important-button: #c81e3a;
-  --not-important: #3a4048;
+  --not-important: #d0d0d0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.footermain {
+  background-color: var(--body-bg);
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.footerTitle {
+  color: rgb(240, 240, 240);
+}
+
+.footerList {
+  list-style-type: none;
+}
+
+.footerLink {
+  text-decoration: none;
+}
+
+.footerItem {
+  color: #b8b8b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 15px 0;
+  transition: 0.7s;
+}
+
+.footerItem:hover {
+  color: rgb(240, 240, 240);
+}
+
+.footerMainContainer {
+  padding: 30px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+}
+
+.footercontainer1 {
+  display: flex;
+  justify-content: left;
+  gap: 200px;
+}
+
+.footercontainer2 {
+  margin-top: 40px;
+  background: linear-gradient(to right, #343e43, #1d2226);
+  width: 500px;
+  padding: 30px;
+  min-height: 400px;
+}
+
+.footerSocial {
+  margin-top: 60px;
+}
+
+.footerSmall {
+  padding-top: 50px;
+}
+
+.footerCopy {
+  display: flex;
+  gap: 50px;
+}
+
+.footerRight {
+  color: #b8b8b8;
+  transition: 0.7;
+}
+
+.footerRight:hover {
+  color: rgb(240, 240, 240);
+}
+
+.footerListSocial {
+  list-style-type: none;
+  display: flex;
+  justify-content: left;
+  gap: 20px;
+  margin-top: 30px;
 }

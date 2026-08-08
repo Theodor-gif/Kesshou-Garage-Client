@@ -1,9 +1,170 @@
 import NavBar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
+import { useContext } from "react";
+import { contextData } from "../context/ContextApi.jsx";
+import style from "../css/model.module.css";
+import logo from "../assets/kessho-icon.png";
 
 function Model() {
+  const { cars } = useContext(contextData);
+
+  if (!cars || cars.length === 0) {
+    return <h1>Loading...</h1>;
+  }
+
+  const bgHero = cars[3].photos[0].url;
+  const brand = cars[3].brand;
+  const model = cars[3].model;
+  const categoryTitleOne = cars[3].spotlight[0].category;
+  const categoryTiOne = cars[3].spotlight[0].title;
+  const categoryDeOne = cars[3].spotlight[0].text;
+  const categoryTitleTwo = cars[3].spotlight[1].category;
+  const categoryTiTwo = cars[3].spotlight[1].title;
+  const categoryDeTwo = cars[3].spotlight[1].text;
+  const categoryTitleThree = cars[3].spotlight[2].category;
+  const categoryTiThree = cars[3].spotlight[2].title;
+  const categoryDeThree = cars[3].spotlight[2].text;
+  const tagline = cars[3].tagline;
+  const description = cars[3].description;
+  const bgOverview = cars[3].photos[1].url;
+  const partPhotoOne = cars[3].photos[2].url;
+  const partPhotoTwo = cars[3].photos[3].url;
+  const partPhotoThree = cars[3].photos[4].url;
+  const partPhotoFour = cars[3].photos[5].url;
+  const partPhotoFive = cars[3].photos[6].url;
+  const partPhotoSix = cars[3].photos[7].url;
+
   return (
     <>
       <NavBar />
+      <main className={style.modelmain}>
+        <section
+          className={style.modelhero}
+          style={{
+            backgroundImage: `url(${bgHero})`,
+          }}
+        >
+          <div className={style.modelNameCar}>
+            <h1 className={style.modelBrand}>{brand}</h1>
+            <p className={style.modelModel}>{model}</p>
+          </div>
+        </section>
+        <section className={style.modelNavBasic}>
+          <ul className={style.modelNavList}>
+            <a className={style.modeAnchor} href="#overview">
+              <li className={style.modelNavItem}>OVERVIEW</li>
+            </a>
+            <a className={style.modeAnchor} href="#overviewOne">
+              <li className={style.modelNavItem}>
+                {categoryTitleOne.toUpperCase()}
+              </li>
+            </a>
+            <a className={style.modeAnchor} href="#overviewTwo">
+              <li className={style.modelNavItem}>
+                {categoryTitleTwo.toUpperCase()}
+              </li>
+            </a>
+            <a className={style.modeAnchor} href="#overviewThree">
+              <li className={style.modelNavItem}>
+                {categoryTitleThree.toUpperCase()}
+              </li>
+            </a>
+          </ul>
+        </section>
+        <section className={style.modelSectionOne}>
+          <div className={style.modelSectionPart}>
+            <img className={style.modelSectionLogo} src={logo} />
+            <h3 id="overview" className={style.modelSectionTitle}>
+              OVERVIEW
+            </h3>
+          </div>
+        </section>
+        <section className={style.modelReasonOne}>
+          <div className={style.modelInfoOne}>
+            <div className={style.modelContainerOne}>
+              <h2 className={style.modelTagLine}>{tagline}</h2>
+            </div>
+            <div className={style.modelContainerTwo}>
+              <p className={style.modelDescription}>{description}</p>
+            </div>
+          </div>
+          <div
+            className={style.modelHeroTwo}
+            style={{
+              backgroundImage: `url(${bgOverview})`,
+            }}
+          ></div>
+        </section>
+        <section className={style.modelSectionOne}>
+          <div className={style.modelSectionPart}>
+            <img className={style.modelSectionLogo} src={logo} />
+            <h3 id="overviewOne" className={style.modelSectionTitle}>
+              {categoryTitleOne.toUpperCase()}
+            </h3>
+          </div>
+        </section>
+        <section className={style.modelDeOne}>
+          <div className={style.modelDePartOne}>
+            <div className={style.modelDeInfo}>
+              <h2 className={style.modelDeTitle}>{categoryTiOne}</h2>
+              <p className={style.modelDePar}>{categoryDeOne}</p>
+            </div>
+            <div className={style.modelDeImg}>
+              <img src={partPhotoOne} width="250" />
+            </div>
+          </div>
+          <div className={style.modelDePartTwo}>
+            <img className={style.modelImgTwo} src={partPhotoTwo} />
+          </div>
+        </section>
+        <section className={style.modelSectionOne}>
+          <div className={style.modelSectionPart}>
+            <img className={style.modelSectionLogo} src={logo} />
+            <h3 id="overviewTwo" className={style.modelSectionTitle}>
+              {categoryTitleTwo.toUpperCase()}
+            </h3>
+          </div>
+        </section>
+        <section className={style.modelSeperate}>
+          <div className={style.modelSepContainer}>
+            <h2 className={style.modelSepTag}>{categoryTiTwo}</h2>
+            <p className={style.modelSepPar}>{categoryDeTwo}</p>
+            <img
+              className={style.modelSepImgOne}
+              src={partPhotoThree}
+              width="200"
+            />
+            <img
+              className={style.modelSepImgTwo}
+              src={partPhotoFour}
+              width="300"
+            />
+          </div>
+        </section>
+        <section className={style.modelSectionOne}>
+          <div className={style.modelSectionPart}>
+            <img className={style.modelSectionLogo} src={logo} />
+            <h3 id="overviewThree" className={style.modelSectionTitle}>
+              {categoryTitleThree.toUpperCase()}
+            </h3>
+          </div>
+        </section>
+        <section className={style.modelDeOne}>
+          <div className={style.modelDePartOne}>
+            <div className={style.modelDeInfo}>
+              <h2 className={style.modelDeTitle}>{categoryTiThree}</h2>
+              <p className={style.modelDePar}>{categoryDeThree}</p>
+            </div>
+            <div className={style.modelDeImg}>
+              <img src={partPhotoFive} width="300" />
+            </div>
+          </div>
+          <div className={style.modelDePartTwo}>
+            <img className={style.modelImgTwo} src={partPhotoSix} />
+          </div>
+        </section>
+      </main>
+      <Footer />
     </>
   );
 }

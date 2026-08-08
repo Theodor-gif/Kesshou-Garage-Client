@@ -16,7 +16,7 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  background-color: var(--navbar-bg);
+  background-color: var(--body-bg);
   width: 100%;
 }
 
@@ -107,6 +107,7 @@
 }
 
 .CartIcon {
+  color: black;
   cursor: pointer;
 }
 

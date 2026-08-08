@@ -1,0 +1,227 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #d0d0d0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.modelmain {
+  background-color: var(--navbar-footer-bg);
+}
+main {
+  display: flow-root;
+}
+
+.modelhero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+}
+
+.modelNameCar {
+  position: absolute;
+  bottom: 30%;
+  left: 5%;
+}
+
+.modelBrand {
+  color: #f9fafb;
+  font-size: 5rem;
+  font-weight: bolder;
+}
+
+.modelModel {
+  color: var(--emphasis-letter-border);
+  font-size: 3rem;
+  font-style: oblique;
+}
+
+.modelNavBasic {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--navbar-footer-bg);
+}
+
+.modelNavList {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  width: 80%;
+  margin: 10px auto;
+  padding: 15px 0;
+}
+
+.modeAnchor {
+  text-decoration: none;
+}
+
+.modelNavItem {
+  color: #b8b8b8;
+  font-size: 1.3rem;
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+.modelNavItem:hover {
+  color: rgb(240, 240, 240);
+}
+
+.modelSectionOne {
+  background-color: var(--body-bg);
+}
+
+.modelSectionPart {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 30px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.modelSectionLogo {
+  width: 40px;
+}
+
+.modelSectionTitle {
+  color: #f9fafb;
+  font-size: 1.1rem;
+}
+
+.modelInfoOne {
+  width: 80%;
+  margin: 100px auto;
+  display: flex;
+  align-items: first baseline;
+}
+
+.modelContainerOne {
+  flex: 1;
+}
+
+.modelContainerTwo {
+  flex: 1;
+}
+
+.modelTagLine {
+  color: var(--emphasis-letter-border);
+  font-size: 1.8rem;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modelDescription {
+  color: #b8b8b8;
+  font-size: 1.3rem;
+  width: 80%;
+  line-height: 40px;
+}
+
+.modelHeroTwo {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 30vh;
+}
+
+.modelDeOne {
+  display: flex;
+  width: 80%;
+  margin: 100px auto;
+}
+
+.modelDePartOne {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.modelDePartTwo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.modelImgTwo {
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.modelDeInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  gap: 50px;
+  margin-bottom: 50px;
+  width: 80%;
+}
+
+.modelDeImg {
+  display: flex;
+  justify-content: right;
+}
+
+.modelDeTitle {
+  color: var(--emphasis-letter-border);
+  font-size: 1.8rem;
+}
+
+.modelDePar {
+  color: #b8b8b8;
+  font-size: 1.3rem;
+  line-height: 40px;
+}
+
+.modelSeperate {
+  width: 80%;
+  margin: 100px auto;
+}
+
+.modelSepContainer {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.modelSepTag {
+  color: var(--emphasis-letter-border);
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.modelSepPar {
+  color: #b8b8b8;
+  font-size: 1.3rem;
+  line-height: 40px;
+  width: 50%;
+}
+
+.modelSepImgOne {
+  margin-left: 450px;
+}
+
+.modelSepImgTwo {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+}

@@ -10,6 +10,9 @@ const api = axios.create({
 export default function ContextProvider({ children }) {
   const [registration, setRegistration] = useState(true);
   const [login, setLogin] = useState(false);
+  const [cars, setCars] = useState([]);
+
+  let data;
 
   function registrationHandle() {
     setRegistration(false);
@@ -20,6 +23,23 @@ export default function ContextProvider({ children }) {
     setRegistration(true);
     setLogin(false);
   }
+
+  async function getCars() {
+    try {
+      const response = await api.get("/cars");
+      setCars(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // setCars((prev) => [...prev, response.data])
+
+  useEffect(() => {
+    getCars();
+  }, []);
+
+  console.log(cars);
   return (
     <contextData.Provider
       value={{
@@ -29,6 +49,7 @@ export default function ContextProvider({ children }) {
         setLogin,
         registrationHandle,
         loginHandle,
+        cars,
       }}
     >
       {children}

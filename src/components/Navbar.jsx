@@ -17,12 +17,15 @@ function NavBar() {
         </section>
         <section className={style.nav2}>
           <SearchIcon className={style.SearchIcon} sx={{ fontSize: 30 }} />
-          <Badge badgeContent={2} color="primary">
-            <FavoriteIcon
-              className={style.FavoriteIcon}
-              sx={{ fontSize: 30 }}
-            />
-          </Badge>
+          <Link className={style.navRoute} to="/favorite">
+            <Badge badgeContent={2} color="primary">
+              <FavoriteIcon
+                className={style.FavoriteIcon}
+                sx={{ fontSize: 30, color: "black" }}
+              />
+            </Badge>
+          </Link>
+
           <Link className={style.navRoute} to="/account">
             <Avatar
               className={style.AvatarIcon}
@@ -32,32 +35,35 @@ function NavBar() {
                 width: 30,
                 height: 30,
                 fontSize: 13,
+                bgcolor: "black",
               }}
             >
               TM
             </Avatar>
           </Link>
-          <Badge badgeContent={2} color="primary">
-            <ShoppingCartIcon
-              className={style.CartIcon}
-              sx={{ fontSize: 30 }}
-            />
-          </Badge>
+          <Link className={style.navRoute} to="/cart">
+            <Badge badgeContent={2} color="primary">
+              <ShoppingCartIcon
+                className={style.CartIcon}
+                sx={{ fontSize: 30 }}
+              />
+            </Badge>
+          </Link>
         </section>
       </div>
       <section className={style.nav3}>
-        <a className={style.navHome} href="" target="_self">
+        <Link to="/" className={style.navHome} href="" target="_self">
           HOME
-        </a>
-        <a className={style.navModels} href="" target="_self">
+        </Link>
+        <Link to="/models" className={style.navModels} href="" target="_self">
           MODELS
-        </a>
-        <a className={style.navParts} href="" target="_self">
+        </Link>
+        <Link to="/parts" className={style.navParts} href="" target="_self">
           PARTS
-        </a>
-        <a className={style.navAbout} href="" target="_self">
+        </Link>
+        <Link className={style.navAbout} href="" target="_self">
           ABOUT
-        </a>
+        </Link>
       </section>
     </nav>
   );

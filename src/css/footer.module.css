@@ -30,6 +30,12 @@
 
 .footerLink {
   text-decoration: none;
+  color: #b8b8b8;
+  transition: 0.7s;
+}
+
+.footerLink:hover {
+  color: rgb(240, 240, 240);
 }
 
 .footerItem {

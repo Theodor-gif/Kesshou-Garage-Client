@@ -17,7 +17,7 @@ function App() {
     <main>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/models" element={<ModelPage />}></Route>
+        <Route path="/models/:id" element={<ModelPage />}></Route>
         <Route path="/cart" element={<CartPage />}></Route>
         <Route path="/parts" element={<PartsPage />}></Route>
         <Route path="/account" element={<RegisterLoginPage />}></Route>

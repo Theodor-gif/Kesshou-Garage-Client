@@ -5,3 +5,119 @@
   --important-button: #c81e3a;
   --not-important: #3a4048;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.homeHero {
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+}
+
+.heroPartOne {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding-bottom: 100px;
+}
+
+.heroTag {
+  color: rgb(240, 240, 240);
+  font-size: 2.5rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heroBrand {
+  color: rgb(240, 240, 240);
+  font-size: 1.8rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heroModel {
+  color: var(--emphasis-letter-border);
+  font-size: 3rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heroContainerPath {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.heroArrowTitle {
+  text-decoration: none;
+  color: rgb(240, 240, 240);
+  font-size: 1.5rem;
+  transition: 1s;
+}
+
+.heroArrowTitle:hover {
+  margin-left: 20px;
+}
+
+.heroPartTwo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 100px;
+}
+
+.heroList {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
+  width: 60%;
+  list-style: none;
+}
+
+.heroItem {
+  display: flex;
+  border-bottom: 3px solid white;
+  height: 300px;
+  width: 25%;
+  justify-content: space-evenly;
+}
+
+.heroPath {
+  text-decoration: none;
+  color: rgb(240, 240, 240);
+  font-size: 1.7rem;
+  font-weight: 900;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.heroHoverImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%);
+  opacity: 0;
+  transition:
+    transform 0.4s ease-in-out,
+    opacity 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+.heroPath:hover .heroHoverImg {
+  transform: translateY(0);
+  opacity: 1;
+}

@@ -5,8 +5,17 @@ import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import style from "../css/footer.module.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { contextData } from "../context/ContextApi";
 
 function Footer() {
+  const { cars } = useContext(contextData);
+  const carOne = cars[0]._id;
+  const carTwo = cars[1]._id;
+  const carTree = cars[2]._id;
+  const carFour = cars[3]._id;
+  const carFive = cars[4]._id;
+
   return (
     <footer className={style.footermain}>
       <div className={style.footerMainContainer}>
@@ -14,11 +23,31 @@ function Footer() {
           <div>
             <h2 className={style.footerTitle}>MODELS</h2>
             <ul className={style.footerList}>
-              <li className={style.footerItem}>Nissan 240SX</li>
-              <li className={style.footerItem}>Mazda RX7</li>
-              <li className={style.footerItem}>BMW E36</li>
-              <li className={style.footerItem}>Toyota AE86</li>
-              <li className={style.footerItem}>Honda S2000</li>
+              <li className={style.footerItem}>
+                <Link className={style.footerLink} to={`/models/${carOne}`}>
+                  Nissan 240SX
+                </Link>
+              </li>
+              <li className={style.footerItem}>
+                <Link className={style.footerLink} to={`/models/${carTwo}`}>
+                  Mazda RX7
+                </Link>
+              </li>
+              <li className={style.footerItem}>
+                <Link className={style.footerLink} to={`/models/${carTree}`}>
+                  BMW E36
+                </Link>
+              </li>
+              <li className={style.footerItem}>
+                <Link className={style.footerLink} to={`/models/${carFour}`}>
+                  Toyota AE86
+                </Link>
+              </li>
+              <li className={style.footerItem}>
+                <Link className={style.footerLink} to={`/models/${carFive}`}>
+                  Honda S2000
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

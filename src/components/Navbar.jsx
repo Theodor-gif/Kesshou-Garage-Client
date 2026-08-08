@@ -16,16 +16,18 @@ function NavBar() {
           <img className={style.logo} src={logo} alt="logo" />
         </section>
         <section className={style.nav2}>
-          <SearchIcon className={style.SearchIcon} sx={{ fontSize: 30 }} />
+          <SearchIcon
+            className={style.SearchIcon}
+            sx={{ fontSize: 30, color: "#b8b8b8" }}
+          />
           <Link className={style.navRoute} to="/favorite">
             <Badge badgeContent={2} color="primary">
               <FavoriteIcon
                 className={style.FavoriteIcon}
-                sx={{ fontSize: 30, color: "black" }}
+                sx={{ fontSize: 30, color: "#b8b8b8" }}
               />
             </Badge>
           </Link>
-
           <Link className={style.navRoute} to="/account">
             <Avatar
               className={style.AvatarIcon}
@@ -35,7 +37,7 @@ function NavBar() {
                 width: 30,
                 height: 30,
                 fontSize: 13,
-                bgcolor: "black",
+                bgcolor: "#b8b8b8",
               }}
             >
               TM
@@ -45,7 +47,7 @@ function NavBar() {
             <Badge badgeContent={2} color="primary">
               <ShoppingCartIcon
                 className={style.CartIcon}
-                sx={{ fontSize: 30 }}
+                sx={{ fontSize: 30, color: "#b8b8b8" }}
               />
             </Badge>
           </Link>

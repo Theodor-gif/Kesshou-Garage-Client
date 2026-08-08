@@ -1,0 +1,118 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #d0d0d0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.homeContainerOne {
+  display: flex;
+  justify-content: center;
+  align-items: first baseline;
+  background-color: var(--navbar-footer-bg);
+}
+
+.homeContSmall {
+  flex: 1;
+}
+
+.homeTagLine {
+  width: 80%;
+  margin: 0 auto;
+  color: var(--emphasis-letter-border);
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.homeContSmallTwo {
+  flex: 1;
+  padding: 100px 0;
+}
+
+.homeDescription {
+  color: #b8b8b8;
+  font-size: 1.3rem;
+  width: 80%;
+  line-height: 40px;
+  margin-bottom: 50px;
+}
+
+.homeContBtn {
+  text-decoration: none;
+  background-color: #c81e3a;
+  color: rgb(165, 165, 165);
+  padding: 17.5px 30px;
+  font-size: 1.3rem;
+  transition: 0.7s;
+}
+
+.homeContBtn:hover {
+  background-color: #e80b30;
+  color: white;
+}
+
+.homeContainerTwo {
+  background-color: #0b1a1f;
+  padding: 80px 0;
+}
+
+.homeContainerImg {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  height: 300px;
+  overflow: hidden;
+}
+
+.homeContainerThree {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 35vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.homeDetails {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.homeDeBrand {
+  color: rgb(240, 240, 240);
+  font-size: 1.8rem;
+}
+
+.homeDeModel {
+  color: var(--emphasis-letter-border);
+  font-size: 3rem;
+}
+
+.homeArrow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.homeDeBtn {
+  text-decoration: none;
+  color: rgb(240, 240, 240);
+  font-size: 1.5rem;
+  transition: 1s;
+}
+
+.homeDeBtn:hover {
+  margin-left: 20px;
+}

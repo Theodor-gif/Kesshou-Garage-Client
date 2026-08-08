@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { contextData } from "../context/ContextApi.jsx";
 import style from "../css/model.module.css";
 import logo from "../assets/kessho-icon.png";
+import { useParams } from "react-router-dom";
 
 function Model() {
   const { cars } = useContext(contextData);
@@ -12,32 +13,40 @@ function Model() {
     return <h1>Loading...</h1>;
   }
 
-  const bgHero = cars[3].photos[0].url;
-  const brand = cars[3].brand;
-  const model = cars[3].model;
-  const categoryTitleOne = cars[3].spotlight[0].category;
-  const categoryTiOne = cars[3].spotlight[0].title;
-  const categoryDeOne = cars[3].spotlight[0].text;
-  const categoryTitleTwo = cars[3].spotlight[1].category;
-  const categoryTiTwo = cars[3].spotlight[1].title;
-  const categoryDeTwo = cars[3].spotlight[1].text;
-  const categoryTitleThree = cars[3].spotlight[2].category;
-  const categoryTiThree = cars[3].spotlight[2].title;
-  const categoryDeThree = cars[3].spotlight[2].text;
-  const tagline = cars[3].tagline;
-  const description = cars[3].description;
-  const bgOverview = cars[3].photos[1].url;
-  const partPhotoOne = cars[3].photos[2].url;
-  const partPhotoTwo = cars[3].photos[3].url;
-  const partPhotoThree = cars[3].photos[4].url;
-  const partPhotoFour = cars[3].photos[5].url;
-  const partPhotoFive = cars[3].photos[6].url;
-  const partPhotoSix = cars[3].photos[7].url;
+  const { id } = useParams();
+
+  const car = cars.find((c) => c._id === id);
+
+  if (!car) {
+    return <h1>Car not found</h1>;
+  }
+
+  const bgHero = car.photos[0].url;
+  const brand = car.brand;
+  const model = car.model;
+  const categoryTitleOne = car.spotlight[0].category;
+  const categoryTiOne = car.spotlight[0].title;
+  const categoryDeOne = car.spotlight[0].text;
+  const categoryTitleTwo = car.spotlight[1].category;
+  const categoryTiTwo = car.spotlight[1].title;
+  const categoryDeTwo = car.spotlight[1].text;
+  const categoryTitleThree = car.spotlight[2].category;
+  const categoryTiThree = car.spotlight[2].title;
+  const categoryDeThree = car.spotlight[2].text;
+  const tagline = car.tagline;
+  const description = car.description;
+  const bgOverview = car.photos[1].url;
+  const partPhotoOne = car.photos[2].url;
+  const partPhotoTwo = car.photos[3].url;
+  const partPhotoThree = car.photos[4].url;
+  const partPhotoFour = car.photos[5].url;
+  const partPhotoFive = car.photos[6].url;
+  const partPhotoSix = car.photos[7].url;
 
   return (
     <>
       <NavBar />
-      <main className={style.modelmain}>
+      <section className={style.modelmain}>
         <section
           className={style.modelhero}
           style={{
@@ -51,24 +60,26 @@ function Model() {
         </section>
         <section className={style.modelNavBasic}>
           <ul className={style.modelNavList}>
-            <a className={style.modeAnchor} href="#overview">
-              <li className={style.modelNavItem}>OVERVIEW</li>
-            </a>
-            <a className={style.modeAnchor} href="#overviewOne">
-              <li className={style.modelNavItem}>
+            <li className={style.modelNavItem}>
+              <a className={style.modeAnchor} href="#overview">
+                OVERVIEW
+              </a>
+            </li>
+            <li className={style.modelNavItem}>
+              <a className={style.modeAnchor} href="#overviewOne">
                 {categoryTitleOne.toUpperCase()}
-              </li>
-            </a>
-            <a className={style.modeAnchor} href="#overviewTwo">
-              <li className={style.modelNavItem}>
+              </a>
+            </li>
+            <li className={style.modelNavItem}>
+              <a className={style.modeAnchor} href="#overviewTwo">
                 {categoryTitleTwo.toUpperCase()}
-              </li>
-            </a>
-            <a className={style.modeAnchor} href="#overviewThree">
-              <li className={style.modelNavItem}>
+              </a>
+            </li>
+            <li className={style.modelNavItem}>
+              <a className={style.modeAnchor} href="#overviewThree">
                 {categoryTitleThree.toUpperCase()}
-              </li>
-            </a>
+              </a>
+            </li>
           </ul>
         </section>
         <section className={style.modelSectionOne}>
@@ -163,7 +174,7 @@ function Model() {
             <img className={style.modelImgTwo} src={partPhotoSix} />
           </div>
         </section>
-      </main>
+      </section>
       <Footer />
     </>
   );

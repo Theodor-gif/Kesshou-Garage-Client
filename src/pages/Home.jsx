@@ -1,14 +1,58 @@
 import NavBar from "../components/Navbar.jsx";
 import Hero from "../components/HomeHero.jsx";
 import Footer from "../components/Footer.jsx";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { contextData } from "../context/ContextApi.jsx";
 import { Link } from "react-router-dom";
 import style from "../css/home.module.css";
 import arrow from "../assets/arrow-18-512.png";
+import BcImage from "../assets/brands/Bc-image.png";
+import BremboImage from "../assets/brands/Brembo-image.png";
+import EnkeiImage from "../assets/brands/Enkei-image.png";
+import MorimotoImage from "../assets/brands/Morimoto-image.png";
+import RaysImage from "../assets/brands/Rays-image.png";
+import TeinImage from "../assets/brands/Tein-image.png";
+import WhitelineImage from "../assets/brands/Whiteline-image.png";
+import WilwoodImage from "../assets/brands/Wilwood-image.png";
+import BrakingImage from "../assets/Category-images/Braking-Image.png";
+import ClutchImage from "../assets/Category-images/Clutch-image.png";
+import CoiloversImage from "../assets/Category-images/Coilovers-image.png";
+import LightingImage from "../assets/Category-images/Lighting-image.png";
+import SteeringImage from "../assets/Category-images/Steering-image.png";
+import WheelImage from "../assets/Category-images/Wheel-image.png";
+import Logo from "../assets/kessho-icon.png";
 
 function Home() {
   const { cars } = useContext(contextData);
+
+  const [brands, setBrands] = useState([
+    BcImage,
+    BremboImage,
+    EnkeiImage,
+    MorimotoImage,
+    RaysImage,
+    TeinImage,
+    WhitelineImage,
+    WilwoodImage,
+  ]);
+
+  const [categoryIcons, setCategoryIcons] = useState([
+    BrakingImage,
+    ClutchImage,
+    CoiloversImage,
+    LightingImage,
+    SteeringImage,
+    WheelImage,
+  ]);
+
+  const categoryNames = [
+    "BRAKING SYSTEM",
+    "CLUTCH",
+    "COILOVERS",
+    "LIGHTS",
+    "STEERING",
+    "WHEELS",
+  ];
 
   if (!cars || cars.length < 5) {
     return <h1>Loading...</h1>;
@@ -65,6 +109,37 @@ function Home() {
             <Link className={style.homeDeBtn}>DISCOVER</Link>
             <img src={arrow} height="30" width="150" />
           </div>
+        </div>
+      </section>
+      <section className={style.homeCategorySection}>
+        <div className={style.homeBgTitle}>
+          <div className={style.homeSectionPart}>
+            <img className={style.homeSectionLogo} src={Logo} />
+            <h2 className={style.homeSectionTitle}>OUR PRODUCT CATEGORIES</h2>
+          </div>
+        </div>
+        <div className={style.homeCategoryFigure}>
+          {categoryIcons.map((icon, index) => (
+            <figure className={style.homeFigure} key={index}>
+              <img src={icon} width="auto" height="150px" />
+              <figcaption className={style.homeFigcaption}>
+                {categoryNames[index]}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+      <section className={style.homeBrandsContainer}>
+        <div className={style.homeBgTitle}>
+          <div className={style.homeSectionPart}>
+            <img className={style.homeSectionLogo} src={Logo} />
+            <h2 className={style.homeSectionTitle}>BRANDS</h2>
+          </div>
+        </div>
+        <div className={style.homeBrands}>
+          {brands.map((brandLogo, index) => (
+            <img key={index} src={brandLogo} width="200" alt="" />
+          ))}
         </div>
       </section>
       <section

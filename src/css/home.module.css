@@ -116,3 +116,86 @@
 .homeDeBtn:hover {
   margin-left: 20px;
 }
+
+.homeBrandsContainer {
+  background-color: #343e43;
+}
+
+.homeBrandsTitle {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #00e5ff;
+  font-size: 1.8rem;
+  border-bottom: 3px solid white;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.homeBrands {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0px 0 70px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.homeCategorySection {
+  background-color: #1d2226;
+}
+
+.homeCategoryFigure {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 2.5px 0 70px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.homeFigure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+}
+
+.homeFigcaption {
+  color: rgb(165, 165, 165);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.homeFigcaption:hover {
+  color: rgb(240, 240, 240);
+}
+
+.homeSectionPart {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 30px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.homeSectionLogo {
+  width: 40px;
+}
+
+.homeSectionTitle {
+  color: #f9fafb;
+  font-size: 1.1rem;
+}
+
+.homeBgTitle {
+  background-color: #0b1a1f;
+  margin-bottom: 80px;
+}

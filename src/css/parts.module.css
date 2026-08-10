@@ -20,6 +20,39 @@
 .partsContainerOne {
   flex: 1;
   background-color: #1d2226;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.partsContTitle {
+  color: #00e5ff;
+  font-size: 1.8rem;
+  padding-top: 75px;
+  padding-bottom: 7.5px;
+  width: 70%;
+  text-align: center;
+  border-bottom: 3px solid rgb(240, 240, 240);
+  margin-bottom: 30px;
+}
+
+.partsContList {
+  width: 70%;
+  list-style: none;
+}
+
+.partsItem {
+  font-size: 1.5rem;
+  color: rgb(148, 148, 148);
+  cursor: pointer;
+  padding: 15px 0;
+  border: 1px solid #00e5ff;
+  text-align: center;
+}
+
+.partsItem:hover {
+  color: rgb(240, 240, 240);
+  background-color: #343e43;
 }
 
 .partsContainerTwo {
@@ -47,10 +80,26 @@
 }
 
 .partsMap {
-  border: 1px solid green;
-  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 250px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.partsProDiv {
+  width: 100%;
+}
+
+.partName {
+  font-size: 1.5rem;
+  color: rgb(148, 148, 148);
+  padding: 30px 0 10px 0;
+}
+
+.partPrice {
+  font-size: 1.3rem;
+  color: rgb(148, 148, 148);
 }

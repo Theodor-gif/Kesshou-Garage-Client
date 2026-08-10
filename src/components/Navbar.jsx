@@ -63,7 +63,12 @@ function NavBar() {
         <Link to="/parts" className={style.navParts} href="" target="_self">
           PARTS
         </Link>
-        <Link className={style.navAbout} href="" target="_self">
+        <Link
+          to="/partsdetail"
+          className={style.navAbout}
+          href=""
+          target="_self"
+        >
           ABOUT
         </Link>
       </section>

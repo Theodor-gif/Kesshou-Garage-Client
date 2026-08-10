@@ -129,15 +129,29 @@ function Parts() {
       <NavBar />
       <section className={style.partsMain}>
         <section className={style.partsContainerOne}>
-          <h2>CATEGORIES</h2>
-          <ul>
-            <li onClick={() => getAllParts()}>All products</li>
-            <li onClick={() => getWheels()}>Wheels</li>
-            <li onClick={() => getSteerings()}>Steering</li>
-            <li onClick={() => getFlywheels()}>Flywheel</li>
-            <li onClick={() => getLightings()}>Lighting</li>
-            <li onClick={() => getCoilovers()}>Coilovers</li>
-            <li onClick={() => getBrakings()}>Braking</li>
+          <h2 className={style.partsContTitle}>CATEGORIES</h2>
+          <ul className={style.partsContList}>
+            <li className={style.partsItem} onClick={() => getAllParts()}>
+              All products
+            </li>
+            <li className={style.partsItem} onClick={() => getWheels()}>
+              Wheels
+            </li>
+            <li className={style.partsItem} onClick={() => getSteerings()}>
+              Steering
+            </li>
+            <li className={style.partsItem} onClick={() => getFlywheels()}>
+              Flywheel
+            </li>
+            <li className={style.partsItem} onClick={() => getLightings()}>
+              Lighting
+            </li>
+            <li className={style.partsItem} onClick={() => getCoilovers()}>
+              Coilovers
+            </li>
+            <li className={style.partsItem} onClick={() => getBrakings()}>
+              Braking
+            </li>
           </ul>
         </section>
         <section className={style.partsContainerTwo}>
@@ -152,13 +166,13 @@ function Parts() {
                       backgroundSize: "contain",
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
-                      width: "250px",
-                      height: "250px",
+                      width: "100%",
+                      height: "100%",
                     }}
                   ></div>
-                  <div>
-                    <h2>{part.name}</h2>
-                    <p>{part.price} &euro;</p>
+                  <div className={style.partsProDiv}>
+                    <h2 className={style.partName}>{part.name}</h2>
+                    <p className={style.partPrice}>{part.price} &euro;</p>
                   </div>
                 </div>
               ))}
@@ -176,9 +190,9 @@ function Parts() {
                       height: "250px",
                     }}
                   ></div>
-                  <div>
-                    <h2>{part.name}</h2>
-                    <p>{part.price} &euro;</p>
+                  <div className={style.partsProDiv}>
+                    <h2 className={style.partName}>{part.name}</h2>
+                    <p className={style.partPrice}>{part.price} &euro;</p>
                   </div>
                 </div>
               ))}
@@ -196,9 +210,9 @@ function Parts() {
                       height: "250px",
                     }}
                   ></div>
-                  <div>
-                    <h2>{part.name}</h2>
-                    <p>{part.price} &euro;</p>
+                  <div className={style.partsProDiv}>
+                    <h2 className={style.partName}>{part.name}</h2>
+                    <p className={style.partPrice}>{part.price} &euro;</p>
                   </div>
                 </div>
               ))}
@@ -216,9 +230,9 @@ function Parts() {
                       height: "250px",
                     }}
                   ></div>
-                  <div>
-                    <h2>{part.name}</h2>
-                    <p>{part.price} &euro;</p>
+                  <div className={style.partsProDiv}>
+                    <h2 className={style.partName}>{part.name}</h2>
+                    <p className={style.partPrice}>{part.price} &euro;</p>
                   </div>
                 </div>
               ))}
@@ -236,9 +250,9 @@ function Parts() {
                       height: "250px",
                     }}
                   ></div>
-                  <div>
-                    <h2>{part.name}</h2>
-                    <p>{part.price} &euro;</p>
+                  <div className={style.partsProDiv}>
+                    <h2 className={style.partName}>{part.name}</h2>
+                    <p className={style.partPrice}>{part.price} &euro;</p>
                   </div>
                 </div>
               ))}
@@ -256,9 +270,9 @@ function Parts() {
                       height: "250px",
                     }}
                   ></div>
-                  <div>
-                    <h2>{part.name}</h2>
-                    <p>{part.price} &euro;</p>
+                  <div className={style.partsProDiv}>
+                    <h2 className={style.partName}>{part.name}</h2>
+                    <p className={style.partPrice}>{part.price} &euro;</p>
                   </div>
                 </div>
               ))}
@@ -276,9 +290,9 @@ function Parts() {
                       height: "250px",
                     }}
                   ></div>
-                  <div>
-                    <h2>{part.name}</h2>
-                    <p>{part.price} &euro;</p>
+                  <div className={style.partsProDiv}>
+                    <h2 className={style.partName}>{part.name}</h2>
+                    <p className={style.partPrice}>{part.price} &euro;</p>
                   </div>
                 </div>
               ))}

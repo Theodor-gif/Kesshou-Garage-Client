@@ -22,7 +22,7 @@ function App() {
         <Route path="/parts" element={<PartsPage />}></Route>
         <Route path="/account" element={<RegisterLoginPage />}></Route>
         <Route path="/favorite" element={<FavoritePage />}></Route>
-        <Route path="/partsDetail" element={<PartsDetail />}></Route>
+        <Route path="/partsdetail" element={<PartsDetail />}></Route>
       </Routes>
     </main>
   );

@@ -11,6 +11,7 @@ export default function ContextProvider({ children }) {
   const [registration, setRegistration] = useState(true);
   const [login, setLogin] = useState(false);
   const [cars, setCars] = useState([]);
+  const [parts, setParts] = useState([]);
 
   let data;
 
@@ -29,7 +30,16 @@ export default function ContextProvider({ children }) {
       const response = await api.get("/cars");
       setCars(response.data);
     } catch (error) {
-      console.error(error);
+      console.log(error);
+    }
+  }
+
+  async function getParts() {
+    try {
+      const response = await api.get("/products");
+      setParts(response.data);
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -37,9 +47,11 @@ export default function ContextProvider({ children }) {
 
   useEffect(() => {
     getCars();
+    getParts();
   }, []);
 
   console.log(cars);
+  console.log(parts);
   return (
     <contextData.Provider
       value={{
@@ -50,6 +62,7 @@ export default function ContextProvider({ children }) {
         registrationHandle,
         loginHandle,
         cars,
+        parts,
       }}
     >
       {children}

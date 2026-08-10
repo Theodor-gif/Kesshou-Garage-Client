@@ -1,0 +1,56 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #898989;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.partsMain {
+  display: flex;
+}
+
+.partsContainerOne {
+  flex: 1;
+  background-color: #1d2226;
+}
+
+.partsContainerTwo {
+  flex: 3;
+  background-color: #343e43;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.partsContainerIn {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 45px;
+}
+
+.partsImageContainer {
+  background-color: white;
+}
+
+.partsMap {
+  border: 1px solid green;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

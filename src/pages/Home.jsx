@@ -115,7 +115,7 @@ function Home() {
         <div className={style.homeBgTitle}>
           <div className={style.homeSectionPart}>
             <img className={style.homeSectionLogo} src={Logo} />
-            <h2 className={style.homeSectionTitle}>OUR PRODUCT CATEGORIES</h2>
+            <h2 className={style.homeSectionTitle}>SHOP BY CATEGORY</h2>
           </div>
         </div>
         <div className={style.homeCategoryFigure}>

@@ -8,12 +8,11 @@ import { useParams } from "react-router-dom";
 
 function Model() {
   const { cars } = useContext(contextData);
+  const { id } = useParams();
 
   if (!cars || cars.length === 0) {
     return <h1>Loading...</h1>;
   }
-
-  const { id } = useParams();
 
   const car = cars.find((c) => c._id === id);
 

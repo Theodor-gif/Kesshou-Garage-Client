@@ -1,0 +1,187 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #898989;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.partsDetailMain {
+  background-color: #b8b8b8;
+}
+
+.partDetailInfo {
+  padding: 100px 0;
+}
+
+.partDetailContInfo {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.partsDetailInfoOne {
+  height: 450px;
+  width: 450px;
+  flex-shrink: 0;
+}
+
+.partsDe {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.partsDetailInfoTwo {
+  flex: 1;
+}
+
+.partsDetail {
+  width: 200px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partsDetailTitle {
+  font-size: 2rem;
+  color: rgb(240, 240, 240);
+  margin: 10px 0;
+}
+
+.partsDetailPrice {
+  font-size: 1.5rem;
+}
+
+.partsDetailOrder {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.partsDetailAmount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(3, 3, 3);
+}
+
+.partsDetailMin {
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.partsDetailView {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.partsDetailPlus {
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.partsDetailAdd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-left: 50px;
+  height: 40px;
+  width: 250px;
+  background-color: #c81e3a;
+  text-decoration: none;
+  color: rgb(165, 165, 165);
+
+  border: none;
+}
+
+.partsDetailAdd:hover,
+.partsDetailAdd:hover .partsDetailIcon,
+.partsDetailAdd:hover .partsDetatilCart {
+  background-color: #e80b30;
+  color: white;
+}
+
+.partsDetailSimilarContainer {
+  background-color: #0b1a1f;
+  padding: 12.5px 0;
+}
+
+.partsSimilar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.partsDetatilSection {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.partsDetailSectionTitle {
+  color: #f9fafb;
+  font-size: 1.3rem;
+}
+
+.partsDetailImage {
+  background-color: white;
+}
+
+.partsDetailSectionName {
+  font-size: 1.5rem;
+  color: rgb(240, 240, 240);
+  padding: 30px 0 10px 0;
+}
+
+.partsDetailSectionPrice {
+  font-size: 1.3rem;
+  color: rgb(240, 240, 240);
+}
+
+.partsDetailbtnContainer {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partsDetailbtn {
+  background-color: #b8b8b8;
+  border: none;
+  cursor: pointer;
+}
+
+.partsDetailMoreContainer {
+  width: 80%;
+  margin: 30px auto;
+}
+
+.partsDetailMoreIn {
+  font-size: 1.3rem;
+  line-height: 30px;
+  color: #1d2226;
+  font-weight: 600;
+  list-style: none;
+}

@@ -3,6 +3,7 @@ import Footer from "../components/Footer.jsx";
 import { useContext, useState } from "react";
 import { contextData } from "../context/ContextApi.jsx";
 import style from "../css/parts.module.css";
+import { Link } from "react-router-dom";
 
 function Parts() {
   const { parts } = useContext(contextData);
@@ -158,143 +159,158 @@ function Parts() {
           <div className={style.partsContainerIn}>
             {all &&
               parts.map((part) => (
-                <div key={part._id} className={style.partsMap}>
-                  <div
-                    className={style.partsImageContainer}
-                    style={{
-                      backgroundImage: `url(${part.image})`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  ></div>
-                  <div className={style.partsProDiv}>
-                    <h2 className={style.partName}>{part.name}</h2>
-                    <p className={style.partPrice}>{part.price} &euro;</p>
+                <Link to={`/partsdetail/${part._id}`} key={part._id}>
+                  {" "}
+                  <div className={style.partsMap}>
+                    <div
+                      className={style.partsImageContainer}
+                      style={{
+                        backgroundImage: `url(${part.image})`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    ></div>
+                    <div className={style.partsProDiv}>
+                      <h2 className={style.partName}>{part.name}</h2>
+                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             {flywheel &&
               flywheels.map((part) => (
-                <div key={part._id} className={style.partsMap}>
-                  <div
-                    className={style.partsImageContainer}
-                    style={{
-                      backgroundImage: `url(${part.image})`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      width: "250px",
-                      height: "250px",
-                    }}
-                  ></div>
-                  <div className={style.partsProDiv}>
-                    <h2 className={style.partName}>{part.name}</h2>
-                    <p className={style.partPrice}>{part.price} &euro;</p>
+                <Link to={`/partsdetail/${part._id}`} key={part._id}>
+                  <div className={style.partsMap}>
+                    <div
+                      className={style.partsImageContainer}
+                      style={{
+                        backgroundImage: `url(${part.image})`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        width: "250px",
+                        height: "250px",
+                      }}
+                    ></div>
+                    <div className={style.partsProDiv}>
+                      <h2 className={style.partName}>{part.name}</h2>
+                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             {coilover &&
               coilovers.map((part) => (
-                <div key={part._id} className={style.partsMap}>
-                  <div
-                    className={style.partsImageContainer}
-                    style={{
-                      backgroundImage: `url(${part.image})`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      width: "250px",
-                      height: "250px",
-                    }}
-                  ></div>
-                  <div className={style.partsProDiv}>
-                    <h2 className={style.partName}>{part.name}</h2>
-                    <p className={style.partPrice}>{part.price} &euro;</p>
+                <Link to={`/partsdetail/${part._id}`} key={part._id}>
+                  <div className={style.partsMap}>
+                    <div
+                      className={style.partsImageContainer}
+                      style={{
+                        backgroundImage: `url(${part.image})`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        width: "250px",
+                        height: "250px",
+                      }}
+                    ></div>
+                    <div className={style.partsProDiv}>
+                      <h2 className={style.partName}>{part.name}</h2>
+                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             {braking &&
               brakings.map((part) => (
-                <div key={part._id} className={style.partsMap}>
-                  <div
-                    className={style.partsImageContainer}
-                    style={{
-                      backgroundImage: `url(${part.image})`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      width: "250px",
-                      height: "250px",
-                    }}
-                  ></div>
-                  <div className={style.partsProDiv}>
-                    <h2 className={style.partName}>{part.name}</h2>
-                    <p className={style.partPrice}>{part.price} &euro;</p>
+                <Link to={`/partsdetail/${part._id}`} key={part._id}>
+                  <div className={style.partsMap}>
+                    <div
+                      className={style.partsImageContainer}
+                      style={{
+                        backgroundImage: `url(${part.image})`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        width: "250px",
+                        height: "250px",
+                      }}
+                    ></div>
+                    <div className={style.partsProDiv}>
+                      <h2 className={style.partName}>{part.name}</h2>
+                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             {wheel &&
               wheels.map((part) => (
-                <div key={part._id} className={style.partsMap}>
-                  <div
-                    className={style.partsImageContainer}
-                    style={{
-                      backgroundImage: `url(${part.image})`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      width: "250px",
-                      height: "250px",
-                    }}
-                  ></div>
-                  <div className={style.partsProDiv}>
-                    <h2 className={style.partName}>{part.name}</h2>
-                    <p className={style.partPrice}>{part.price} &euro;</p>
+                <Link to={`/partsdetail/${part._id}`} key={part._id}>
+                  <div className={style.partsMap}>
+                    <div
+                      className={style.partsImageContainer}
+                      style={{
+                        backgroundImage: `url(${part.image})`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        width: "250px",
+                        height: "250px",
+                      }}
+                    ></div>
+                    <div className={style.partsProDiv}>
+                      <h2 className={style.partName}>{part.name}</h2>
+                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             {lighting &&
               lightings.map((part) => (
-                <div key={part._id} className={style.partsMap}>
-                  <div
-                    className={style.partsImageContainer}
-                    style={{
-                      backgroundImage: `url(${part.image})`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      width: "250px",
-                      height: "250px",
-                    }}
-                  ></div>
-                  <div className={style.partsProDiv}>
-                    <h2 className={style.partName}>{part.name}</h2>
-                    <p className={style.partPrice}>{part.price} &euro;</p>
+                <Link to={`/partsdetail/${part._id}`} key={part._id}>
+                  <div className={style.partsMap}>
+                    <div
+                      className={style.partsImageContainer}
+                      style={{
+                        backgroundImage: `url(${part.image})`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        width: "250px",
+                        height: "250px",
+                      }}
+                    ></div>
+                    <div className={style.partsProDiv}>
+                      <h2 className={style.partName}>{part.name}</h2>
+                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             {steering &&
               steerings.map((part) => (
-                <div key={part._id} className={style.partsMap}>
-                  <div
-                    className={style.partsImageContainer}
-                    style={{
-                      backgroundImage: `url(${part.image})`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                      width: "250px",
-                      height: "250px",
-                    }}
-                  ></div>
-                  <div className={style.partsProDiv}>
-                    <h2 className={style.partName}>{part.name}</h2>
-                    <p className={style.partPrice}>{part.price} &euro;</p>
+                <Link to={`/partsdetail/${part._id}`} key={part._id}>
+                  <div className={style.partsMap}>
+                    <div
+                      className={style.partsImageContainer}
+                      style={{
+                        backgroundImage: `url(${part.image})`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        width: "250px",
+                        height: "250px",
+                      }}
+                    ></div>
+                    <div className={style.partsProDiv}>
+                      <h2 className={style.partName}>{part.name}</h2>
+                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
           </div>
         </section>

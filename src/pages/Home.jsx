@@ -60,6 +60,7 @@ function Home() {
 
   const brandFour = cars[3].brand;
   const modelFour = cars[3].model;
+  const idFour = cars[3]._id;
   const tagLineFour = cars[3].tagline;
   const descriptionFour = cars[3].description;
   const bgFour = cars[3].photos[0].url;
@@ -69,6 +70,7 @@ function Home() {
 
   const brandFive = cars[4].brand;
   const modelFive = cars[4].model;
+  const idFive = cars[4]._id;
   const tagLineFive = cars[4].tagline;
   const descriptionFive = cars[4].description;
   const bgFive = cars[4].photos[1].url;
@@ -86,7 +88,9 @@ function Home() {
         </div>
         <div className={style.homeContSmallTwo}>
           <p className={style.homeDescription}>{descriptionFour}</p>
-          <Link className={style.homeContBtn}>DISCOVER</Link>
+          <Link to={`/models/${idFour}`} className={style.homeContBtn}>
+            DISCOVER
+          </Link>
         </div>
       </section>
       <section className={style.homeContainerTwo}>
@@ -106,7 +110,9 @@ function Home() {
           <h2 className={style.homeDeBrand}>{brandFour}</h2>
           <h2 className={style.homeDeModel}>{modelFour}</h2>
           <div className={style.homeArrow}>
-            <Link className={style.homeDeBtn}>DISCOVER</Link>
+            <Link to={`/models/${idFour}`} className={style.homeDeBtn}>
+              DISCOVER
+            </Link>
             <img src={arrow} height="30" width="150" />
           </div>
         </div>
@@ -150,7 +156,9 @@ function Home() {
           <h2 className={style.homeDeBrand}>{brandFive}</h2>
           <h2 className={style.homeDeModel}>{modelFive}</h2>
           <div className={style.homeArrow}>
-            <Link className={style.homeDeBtn}>DISCOVER</Link>
+            <Link to={`/models/${idFive}`} className={style.homeDeBtn}>
+              DISCOVER
+            </Link>
             <img src={arrow} height="30" width="150" />
           </div>
         </div>
@@ -168,7 +176,9 @@ function Home() {
         </div>
         <div className={style.homeContSmallTwo}>
           <p className={style.homeDescription}>{descriptionFive}</p>
-          <Link className={style.homeContBtn}>DISCOVER</Link>
+          <Link to={`/models/${idFive}`} className={style.homeContBtn}>
+            DISCOVER
+          </Link>
         </div>
       </section>
       <Footer />

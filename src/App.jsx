@@ -7,6 +7,7 @@ import CartPage from "./pages/Cart.jsx";
 import FavoritePage from "./pages/Favorites.jsx";
 import RegisterLoginPage from "./pages/RegisterLogin.jsx";
 import PartsDetail from "./pages/PartsDetail.jsx";
+import ScrollToTop from "../src/components/ScrollToTop.jsx";
 
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <main>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/models/:id" element={<ModelPage />}></Route>
@@ -22,7 +24,7 @@ function App() {
         <Route path="/parts" element={<PartsPage />}></Route>
         <Route path="/account" element={<RegisterLoginPage />}></Route>
         <Route path="/favorite" element={<FavoritePage />}></Route>
-        <Route path="/partsdetail" element={<PartsDetail />}></Route>
+        <Route path="/partsdetail/:id" element={<PartsDetail />}></Route>
       </Routes>
     </main>
   );

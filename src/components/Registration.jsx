@@ -1,11 +1,23 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { contextData } from "../context/ContextApi";
 import style from "../css/registration.module.css";
 import { Link } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 function Registration() {
-  const { registrationHandle } = useContext(contextData);
+  const {
+    registrationHandle,
+    firstname,
+    setFirstname,
+    surname,
+    setSurname,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    registerUser,
+  } = useContext(contextData);
+
   return (
     <div className={style.registermain}>
       <div className={style.registercontainer}>
@@ -27,7 +39,13 @@ function Registration() {
         <p className={style.reginfo}>
           <span>* </span>Required fields
         </p>
-        <form className={style.regform}>
+        <form
+          className={style.regform}
+          onSubmit={(e) => {
+            e.preventDefault();
+            registerUser();
+          }}
+        >
           <label className={style.reglabel} htmlFor="firstname">
             First name<span> *</span>
           </label>
@@ -36,7 +54,8 @@ function Registration() {
             id="firstname"
             type="text"
             name="firstname"
-            value="Theodoros"
+            value={firstname}
+            onChange={(e) => setFirstname(e.target.value)}
           />
           <label className={style.reglabel} htmlFor="surname">
             Surname<span> *</span>
@@ -46,7 +65,8 @@ function Registration() {
             id="surname"
             type="text"
             name="surname"
-            value="Mitropoulos"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
           />
           <label className={style.reglabel} htmlFor="email">
             E-mail<span> *</span>
@@ -55,8 +75,9 @@ function Registration() {
             className={style.reginput}
             id="email"
             type="email"
-            name="eamil"
-            value="theodor.mitropoulos@yahoo.com"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label className={style.reglabel} htmlFor="password">
             Password<span> *</span>
@@ -65,8 +86,9 @@ function Registration() {
             className={style.reginput}
             id="password"
             type="password"
-            name="paswword"
-            value="10219Tm!!"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <div className={style.regExtraInfo}>
             <p>

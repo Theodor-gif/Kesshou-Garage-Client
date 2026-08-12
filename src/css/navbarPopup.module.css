@@ -1,0 +1,51 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #898989;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbarPopUp {
+  position: absolute;
+  top: 100%;
+  left: 27.5%;
+  background-color: #1d2226;
+  width: 370px;
+  z-index: 100;
+}
+
+.navbarPopLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  font-size: 1.5rem;
+  color: rgb(148, 148, 148);
+  cursor: pointer;
+  padding: 15px 15px;
+  border: 1px solid #00e5ff;
+  height: 70px;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.navbarPopLink:hover {
+  color: rgb(240, 240, 240);
+  background-color: #343e43;
+}
+
+.navbarPopDetail {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}

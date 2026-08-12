@@ -8,22 +8,25 @@ import style from "../css/partsdetail.module.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { fontSize } from "@mui/system";
+import { useParams } from "react-router-dom";
 
 function PartsDetail() {
   const { parts } = useContext(contextData);
   const [index, setIndex] = useState(0);
   const visibleCount = 3;
 
+  const { id } = useParams();
+
   if (!parts || parts.length === 0) {
     return <h1>Loading...</h1>;
   }
 
+  const part = parts.find((c) => c._id === id);
+
   let similarParts = parts.filter(
-    (element) => element.categoryName === "Lighting",
+    (element) => element.categoryName === part.categoryName,
   );
-  let restParts = similarParts.filter(
-    (element) => element._id !== parts[30]._id,
-  );
+  let restParts = similarParts.filter((element) => element._id !== part._id);
 
   function handleLeft() {
     setIndex((prev) => Math.max(prev - 1, 0));
@@ -46,7 +49,7 @@ function PartsDetail() {
               <div
                 className={style.partsDetailInfoOne}
                 style={{
-                  backgroundImage: `url(${parts[30].image})`,
+                  backgroundImage: `url(${part.image})`,
                   backgroundSize: "contain",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -56,12 +59,10 @@ function PartsDetail() {
             <div className={style.partsDetailInfoTwo}>
               <div>
                 <div className={style.partsDetail}>
-                  <img src={parts[30].brandImage} width="100%" />
+                  <img src={part.brandImage} width="100%" />
                 </div>
-                <h2 className={style.partsDetailTitle}>{parts[30].name}</h2>
-                <p className={style.partsDetailPrice}>
-                  {parts[30].price} &euro;
-                </p>
+                <h2 className={style.partsDetailTitle}>{part.name}</h2>
+                <p className={style.partsDetailPrice}>{part.price} &euro;</p>
                 <div className={style.partsDetailOrder}>
                   <div className={style.partsDetailAmount}>
                     <button className={style.partsDetailMin} type="button">
@@ -109,27 +110,29 @@ function PartsDetail() {
               </button>
             </div>
             {visibleParts.map((element) => (
-              <div className={style.partsSimilarSlide} key={element._id}>
-                <div
-                  className={style.partsDetailImage}
-                  style={{
-                    backgroundImage: `url(${element.image})`,
-                    backgroundSize: "contain",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    width: "250px",
-                    height: "250px",
-                  }}
-                ></div>
-                <div>
-                  <h3 className={style.partsDetailSectionName}>
-                    {element.name}
-                  </h3>
-                  <p className={style.partsDetailSectionPrice}>
-                    {element.price} &euro;
-                  </p>
+              <Link key={element._id} to={`/partsdetail/${element._id}`}>
+                <div className={style.partsSimilarSlide}>
+                  <div
+                    className={style.partsDetailImage}
+                    style={{
+                      backgroundImage: `url(${element.image})`,
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      width: "250px",
+                      height: "250px",
+                    }}
+                  ></div>
+                  <div>
+                    <h3 className={style.partsDetailSectionName}>
+                      {element.name}
+                    </h3>
+                    <p className={style.partsDetailSectionPrice}>
+                      {element.price} &euro;
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
             <div className={style.partsDetailbtnContainer}>
               <button
@@ -155,7 +158,7 @@ function PartsDetail() {
             </div>
           </div>
           <div className={style.partsDetailMoreContainer}>
-            <p className={style.partsDetailMoreIn}>{parts[30].description}</p>
+            <p className={style.partsDetailMoreIn}>{part.description}</p>
           </div>
         </section>
         {/* COMPATIBLE WITH */}
@@ -169,7 +172,7 @@ function PartsDetail() {
           </div>
           <div className={style.partsDetailMoreContainer}>
             <ul>
-              {parts[30].compatibleWith.map((element, index) => (
+              {part.compatibleWith.map((element, index) => (
                 <li className={style.partsDetailMoreIn} key={index}>
                   {element}
                 </li>
@@ -186,7 +189,7 @@ function PartsDetail() {
           </div>
           <div className={style.partsDetailMoreContainer}>
             <ul>
-              {Object.entries(parts[30].specs).map(([specName, specValue]) => (
+              {Object.entries(part.specs).map(([specName, specValue]) => (
                 <li className={style.partsDetailMoreIn} key={specName}>
                   <strong>
                     {specName.charAt(0).toUpperCase() + specName.slice(1)}:
@@ -208,7 +211,7 @@ function PartsDetail() {
           </div>
           <div className={style.partsDetailMoreContainer}>
             <ul>
-              {parts[30].whatsInTheBox.map((item, index) => (
+              {part.whatsInTheBox.map((item, index) => (
                 <li className={style.partsDetailMoreIn} key={index}>
                   {item}
                 </li>
@@ -225,7 +228,7 @@ function PartsDetail() {
           </div>
           <div className={style.partsDetailMoreContainer}>
             <ul>
-              {parts[30].kitFeatures.map((element, index) => (
+              {part.kitFeatures.map((element, index) => (
                 <li className={style.partsDetailMoreIn} key={index}>
                   {element}
                 </li>

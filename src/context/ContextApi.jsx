@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const contextData = createContext();
 
@@ -12,6 +13,10 @@ export default function ContextProvider({ children }) {
   const [login, setLogin] = useState(false);
   const [cars, setCars] = useState([]);
   const [parts, setParts] = useState([]);
+  const [firstname, setFirstname] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   let data;
 
@@ -23,6 +28,21 @@ export default function ContextProvider({ children }) {
   function loginHandle() {
     setRegistration(true);
     setLogin(false);
+  }
+
+  async function registerUser() {
+    try {
+      const response = await api.post("/user/register", {
+        firstname,
+        surname,
+        email,
+        password,
+      });
+      console.log(response.data);
+      registrationHandle();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async function getCars() {
@@ -43,8 +63,6 @@ export default function ContextProvider({ children }) {
     }
   }
 
-  // setCars((prev) => [...prev, response.data])
-
   useEffect(() => {
     getCars();
     getParts();
@@ -52,6 +70,7 @@ export default function ContextProvider({ children }) {
 
   console.log(cars);
   console.log(parts);
+
   return (
     <contextData.Provider
       value={{
@@ -63,6 +82,15 @@ export default function ContextProvider({ children }) {
         loginHandle,
         cars,
         parts,
+        firstname,
+        setFirstname,
+        surname,
+        setSurname,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        registerUser,
       }}
     >
       {children}

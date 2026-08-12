@@ -7,8 +7,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import style from "../css/navbar.module.css";
 import { Link } from "react-router-dom";
+import NavbarPopup from "../components/NavbarPopup.jsx";
+import { useState } from "react";
 
 function NavBar() {
+  const [popUp, setPopUp] = useState(false);
+
   return (
     <nav className={style.navbar}>
       <div className={style.intro}>
@@ -54,24 +58,24 @@ function NavBar() {
         </section>
       </div>
       <section className={style.nav3}>
-        <Link to="/" className={style.navHome} href="" target="_self">
+        <Link to="/" className={style.navHome}>
           HOME
         </Link>
-        <Link to="/models" className={style.navModels} href="" target="_self">
+        <button
+          type="button"
+          onClick={() => setPopUp((prev) => !prev)}
+          className={style.navModels}
+        >
           MODELS
-        </Link>
-        <Link to="/parts" className={style.navParts} href="" target="_self">
+        </button>
+        <Link to="/parts" className={style.navParts}>
           PARTS
         </Link>
-        <Link
-          to="/partsdetail"
-          className={style.navAbout}
-          href=""
-          target="_self"
-        >
+        <Link to="/partsdetail" className={style.navAbout}>
           ABOUT
         </Link>
       </section>
+      {popUp && <NavbarPopup />}
     </nav>
   );
 }

@@ -18,6 +18,8 @@
   flex-direction: column;
   background-color: var(--body-bg);
   width: 100%;
+  position: relative;
+  z-index: 100;
 }
 
 .intro {
@@ -51,8 +53,11 @@
 .navModels {
   text-decoration: none;
   color: rgb(148, 148, 148);
+  background-color: #0b1a1f;
   font-size: 1.3rem;
   transition: 0.5s;
+  cursor: pointer;
+  border: none;
 }
 
 .navModels:hover {
@@ -122,4 +127,9 @@
 .logo {
   width: 90px;
   height: 90px;
+}
+
+.NavbarPopUp {
+  position: absolute;
+  top: 0;
 }

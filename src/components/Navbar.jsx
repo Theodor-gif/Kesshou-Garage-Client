@@ -8,10 +8,12 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import style from "../css/navbar.module.css";
 import { Link } from "react-router-dom";
 import NavbarPopup from "../components/NavbarPopup.jsx";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { contextData } from "../context/ContextApi.jsx";
 
 function NavBar() {
   const [popUp, setPopUp] = useState(false);
+  const { userName } = useContext(contextData);
 
   return (
     <nav className={style.navbar}>
@@ -44,7 +46,7 @@ function NavBar() {
                 bgcolor: "#b8b8b8",
               }}
             >
-              TM
+              {userName}
             </Avatar>
           </Link>
           <Link className={style.navRoute} to="/cart">

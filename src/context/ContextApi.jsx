@@ -17,6 +17,8 @@ export default function ContextProvider({ children }) {
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [userName, setUserName] = useState("");
 
   let data;
 
@@ -32,6 +34,7 @@ export default function ContextProvider({ children }) {
 
   async function registerUser() {
     try {
+      setError("");
       const response = await api.post("/user/register", {
         firstname,
         surname,
@@ -39,9 +42,10 @@ export default function ContextProvider({ children }) {
         password,
       });
       console.log(response.data);
+      setUserName(response.data.firstname.slice(0, 2).toUpperCase());
       registrationHandle();
     } catch (error) {
-      console.log(error);
+      setError(err.response?.data?.message || "Something went wrong");
     }
   }
 
@@ -91,6 +95,7 @@ export default function ContextProvider({ children }) {
         password,
         setPassword,
         registerUser,
+        userName,
       }}
     >
       {children}

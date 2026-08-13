@@ -13,7 +13,10 @@ import { contextData } from "../context/ContextApi.jsx";
 
 function NavBar() {
   const [popUp, setPopUp] = useState(false);
-  const { userName } = useContext(contextData);
+  const { userName, logoutUser, cart } = useContext(contextData);
+
+  const cartItemCount =
+    cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
 
   return (
     <nav className={style.navbar}>
@@ -50,7 +53,7 @@ function NavBar() {
             </Avatar>
           </Link>
           <Link className={style.navRoute} to="/cart">
-            <Badge badgeContent={2} color="primary">
+            <Badge badgeContent={cartItemCount} color="primary">
               <ShoppingCartIcon
                 className={style.CartIcon}
                 sx={{ fontSize: 30, color: "#b8b8b8" }}
@@ -76,6 +79,7 @@ function NavBar() {
         <Link to="/partsdetail" className={style.navAbout}>
           ABOUT
         </Link>
+        <button onClick={logoutUser}>Log out</button>
       </section>
       {popUp && <NavbarPopup />}
     </nav>

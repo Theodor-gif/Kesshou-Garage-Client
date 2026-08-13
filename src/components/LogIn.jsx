@@ -1,11 +1,19 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { contextData } from "../context/ContextApi";
 import style from "../css/login.module.css";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { Link } from "react-router-dom";
 
 function LogIn() {
-  const { loginHandle } = useContext(contextData);
+  const {
+    loginHandle,
+    emailLog,
+    setEmailLog,
+    passwordLog,
+    setPasswordLog,
+    logUser,
+  } = useContext(contextData);
+
   return (
     <div className={style.logmain}>
       <div className={style.logcontainer}>
@@ -19,7 +27,7 @@ function LogIn() {
             </span>
           </p>
         </div>
-        <form className={style.logform}>
+        <form className={style.logform} onSubmit={logUser}>
           <label className={style.loglabel} htmlFor="email">
             E-mail<span> *</span>
           </label>
@@ -27,8 +35,9 @@ function LogIn() {
             className={style.loginput}
             id="email"
             type="email"
-            name="eamil"
-            value="theodor.mitropoulos@yahoo.com"
+            name="email"
+            value={emailLog}
+            onChange={(e) => setEmailLog(e.target.value)}
           />
           <label className={style.loglabel} htmlFor="password">
             Password<span> *</span>
@@ -37,8 +46,9 @@ function LogIn() {
             className={style.loginput}
             id="password"
             type="password"
-            name="paswword"
-            value="10219Tm!!"
+            name="password"
+            value={passwordLog}
+            onChange={(e) => setPasswordLog(e.target.value)}
           />
           <button className={style.logbtnsub} type="submit">
             Log in

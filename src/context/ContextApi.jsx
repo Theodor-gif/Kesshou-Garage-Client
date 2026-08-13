@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 export const contextData = createContext();
 
@@ -19,8 +20,11 @@ export default function ContextProvider({ children }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [userName, setUserName] = useState("");
-
-  let data;
+  const [emailLog, setEmailLog] = useState("");
+  const [passwordLog, setPasswordLog] = useState("");
+  const [cart, setCart] = useState(null);
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
   function registrationHandle() {
     setRegistration(false);
@@ -32,7 +36,8 @@ export default function ContextProvider({ children }) {
     setLogin(false);
   }
 
-  async function registerUser() {
+  async function registerUser(e) {
+    e.preventDefault();
     try {
       setError("");
       const response = await api.post("/user/register", {
@@ -42,10 +47,28 @@ export default function ContextProvider({ children }) {
         password,
       });
       console.log(response.data);
-      setUserName(response.data.firstname.slice(0, 2).toUpperCase());
+
       registrationHandle();
     } catch (error) {
-      setError(err.response?.data?.message || "Something went wrong");
+      setError(error.response?.data?.message || "Something went wrong");
+    }
+  }
+
+  async function logUser(e) {
+    e.preventDefault();
+    try {
+      const response = await api.post("/user/login", {
+        email: emailLog,
+        password: passwordLog,
+      });
+      localStorage.setItem("token", response.data.token);
+      setUserName(response.data.user.firstname.slice(0, 2).toUpperCase());
+      setEmailLog("");
+      setPasswordLog("");
+      getCart();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -67,13 +90,77 @@ export default function ContextProvider({ children }) {
     }
   }
 
+  async function addToCart(partId, quantity) {
+    try {
+      const currentToken = localStorage.getItem("token");
+      const response = await api.post(
+        "/cart/add",
+        {
+          product: {
+            product: partId,
+            quantity: quantity,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${currentToken}`,
+          },
+        },
+      );
+      console.log(response.data);
+      setCart(response.data.cart);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getCart() {
+    try {
+      const currentToken = localStorage.getItem("token");
+      const response = await api.get("/cart", {
+        headers: {
+          Authorization: `Bearer ${currentToken}`,
+        },
+      });
+      setCart(response.data);
+    } catch (error) {
+      console.log(error);
+      setCart(null);
+    }
+  }
+
+  function logoutUser() {
+    localStorage.removeItem("token");
+    setCart(null);
+    setUserName("");
+    navigate("/");
+  }
+
+  // Runs once on mount: restore login state from a saved token (if valid/not expired),
+  // and load the initial cars/parts data.
   useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+
+    if (savedToken) {
+      try {
+        const decoded = jwtDecode(savedToken);
+        const isExpired = decoded.exp * 1000 < Date.now();
+
+        if (isExpired) {
+          localStorage.removeItem("token");
+        } else {
+          setUserName(decoded.firstname.slice(0, 2).toUpperCase());
+          getCart();
+        }
+      } catch (error) {
+        console.log(error);
+        localStorage.removeItem("token");
+      }
+    }
+
     getCars();
     getParts();
   }, []);
-
-  console.log(cars);
-  console.log(parts);
 
   return (
     <contextData.Provider
@@ -95,7 +182,17 @@ export default function ContextProvider({ children }) {
         password,
         setPassword,
         registerUser,
+        error,
         userName,
+        emailLog,
+        setEmailLog,
+        passwordLog,
+        setPasswordLog,
+        logUser,
+        addToCart,
+        cart,
+        getCart,
+        logoutUser,
       }}
     >
       {children}

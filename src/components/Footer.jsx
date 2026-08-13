@@ -10,6 +10,11 @@ import { contextData } from "../context/ContextApi";
 
 function Footer() {
   const { cars } = useContext(contextData);
+
+  if (!cars || cars.length < 5) {
+    return null; // or a lightweight fallback footer
+  }
+
   const carOne = cars[0]._id;
   const carTwo = cars[1]._id;
   const carTree = cars[2]._id;
@@ -23,31 +28,13 @@ function Footer() {
           <div>
             <h2 className={style.footerTitle}>MODELS</h2>
             <ul className={style.footerList}>
-              <li className={style.footerItem}>
-                <Link className={style.footerLink} to={`/models/${carOne}`}>
-                  Nissan 240SX
-                </Link>
-              </li>
-              <li className={style.footerItem}>
-                <Link className={style.footerLink} to={`/models/${carTwo}`}>
-                  Mazda RX7
-                </Link>
-              </li>
-              <li className={style.footerItem}>
-                <Link className={style.footerLink} to={`/models/${carTree}`}>
-                  BMW E36
-                </Link>
-              </li>
-              <li className={style.footerItem}>
-                <Link className={style.footerLink} to={`/models/${carFour}`}>
-                  Toyota AE86
-                </Link>
-              </li>
-              <li className={style.footerItem}>
-                <Link className={style.footerLink} to={`/models/${carFive}`}>
-                  Honda S2000
-                </Link>
-              </li>
+              {cars.slice(0, 5).map((car) => (
+                <li className={style.footerItem} key={car._id}>
+                  <Link className={style.footerLink} to={`/models/${car._id}`}>
+                    {car.brand} {car.model}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>

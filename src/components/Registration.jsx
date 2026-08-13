@@ -39,13 +39,7 @@ function Registration() {
         <p className={style.reginfo}>
           <span>* </span>Required fields
         </p>
-        <form
-          className={style.regform}
-          onSubmit={(e) => {
-            e.preventDefault();
-            registerUser();
-          }}
-        >
+        <form className={style.regform} onSubmit={registerUser}>
           <label className={style.reglabel} htmlFor="firstname">
             First name<span> *</span>
           </label>

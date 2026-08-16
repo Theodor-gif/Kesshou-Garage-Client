@@ -25,6 +25,8 @@ export default function ContextProvider({ children }) {
   const [cart, setCart] = useState(null);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const [text, setText] = useState("");
+  const [comments, setComments] = useState([]);
 
   function registrationHandle() {
     setRegistration(false);
@@ -136,6 +138,15 @@ export default function ContextProvider({ children }) {
     navigate("/");
   }
 
+  async function commentEach(partId) {
+    try {
+      const response = await api.get(`/comment/parts/${partId}/comments`);
+      setComments(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function deleteCartItem(id) {
     try {
       const currentToken = localStorage.getItem("token");
@@ -146,6 +157,25 @@ export default function ContextProvider({ children }) {
       });
 
       setCart(response.data.cart);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function reviewSend(e, partId) {
+    e.preventDefault();
+    try {
+      const currentToken = localStorage.getItem("token");
+      const response = await api.post(
+        `/comment/parts/${partId}/comments`,
+        { text },
+        {
+          headers: {
+            Authorization: `Bearer ${currentToken}`,
+          },
+        },
+      );
+      setText(""); // clear the textarea after a successful submit
     } catch (error) {
       console.log(error);
     }
@@ -209,6 +239,11 @@ export default function ContextProvider({ children }) {
         getCart,
         logoutUser,
         deleteCartItem,
+        text,
+        setText,
+        reviewSend,
+        commentEach,
+        comments,
       }}
     >
       {children}

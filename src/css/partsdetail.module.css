@@ -124,6 +124,7 @@
 .partsDetailSimilarContainer {
   background-color: #0b1a1f;
   padding: 12.5px 0;
+  margin-bottom: 50px;
 }
 
 .partsSimilar {
@@ -137,6 +138,12 @@
 .partsDetatilSection {
   width: 80%;
   margin: 0 auto;
+}
+
+.partsDetatilSectionTwo {
+  width: 80%;
+  margin: 10px auto;
+  color: #d3e5f1;
 }
 
 .partsDetailSectionTitle {

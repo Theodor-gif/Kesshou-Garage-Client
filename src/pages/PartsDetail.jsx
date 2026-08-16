@@ -1,6 +1,6 @@
 import NavBar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { contextData } from "../context/ContextApi.jsx";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import style from "../css/partsdetail.module.css";
@@ -9,12 +9,17 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useParams, Link } from "react-router-dom";
 
 function PartsDetail() {
-  const { parts, addToCart } = useContext(contextData);
+  const { parts, addToCart, text, setText, reviewSend, commentEach, comments } =
+    useContext(contextData);
   const [index, setIndex] = useState(0);
   const [quantity, setQuantity] = useState(1); // start at 1, not 0
   const visibleCount = 3;
 
   const { id } = useParams();
+
+  useEffect(() => {
+    commentEach(id);
+  }, [id]);
 
   if (!parts || parts.length === 0) {
     return <h1>Loading...</h1>;
@@ -107,7 +112,6 @@ function PartsDetail() {
             </div>
           </div>
         </section>
-
         {/* SIMILAR PRODUCTS */}
         <section>
           <div className={style.partsDetailSimilarContainer}>
@@ -128,7 +132,6 @@ function PartsDetail() {
                 <ArrowBackIosIcon sx={{ fontSize: 75 }} />
               </button>
             </div>
-
             {visibleParts.map((element) => (
               <Link
                 key={element._id}
@@ -156,7 +159,6 @@ function PartsDetail() {
                 </div>
               </Link>
             ))}
-
             <div className={style.partsDetailbtnContainer}>
               <button
                 type="button"
@@ -169,27 +171,22 @@ function PartsDetail() {
             </div>
           </div>
         </section>
-
-        {/* DESCRIPTION */}
         <section>
           <div className={style.partsDetailSimilarContainer}>
             <div className={style.partsDetatilSection}>
-              <h2 className={style.partsDetailSectionTitle}>DESCRIPTION</h2>
+              <h2 className={style.partsDetailSectionTitle}>INFORMATION</h2>
             </div>
+          </div>
+          {/* DESCRIPTION */}
+          <div className={style.partsDetatilSectionTwo}>
+            <h2>DESCRIPTION</h2>
           </div>
           <div className={style.partsDetailMoreContainer}>
             <p className={style.partsDetailMoreIn}>{part.description}</p>
           </div>
-        </section>
-
-        {/* COMPATIBLE WITH */}
-        <section>
-          <div className={style.partsDetailSimilarContainer}>
-            <div className={style.partsDetatilSection}>
-              <h2 className={style.partsDetailSectionTitle}>
-                COMPATIBLE MODELS
-              </h2>
-            </div>
+          {/* COMPATIBLE WITH */}
+          <div className={style.partsDetatilSectionTwo}>
+            <h2>COMPATIBLE MODELS</h2>
           </div>
           <div className={style.partsDetailMoreContainer}>
             <ul>
@@ -200,14 +197,9 @@ function PartsDetail() {
               ))}
             </ul>
           </div>
-        </section>
-
-        {/* SPECS */}
-        <section>
-          <div className={style.partsDetailSimilarContainer}>
-            <div className={style.partsDetatilSection}>
-              <h2 className={style.partsDetailSectionTitle}>SPECS</h2>
-            </div>
+          {/* SPECS */}
+          <div className={style.partsDetatilSectionTwo}>
+            <h2>SPECS</h2>
           </div>
           <div className={style.partsDetailMoreContainer}>
             <ul>
@@ -221,16 +213,9 @@ function PartsDetail() {
               ))}
             </ul>
           </div>
-        </section>
-
-        {/* WHAT IS IN THE BOX */}
-        <section>
-          <div className={style.partsDetailSimilarContainer}>
-            <div className={style.partsDetatilSection}>
-              <h2 className={style.partsDetailSectionTitle}>
-                WHAT IS IN THE BOX
-              </h2>
-            </div>
+          {/* WHAT IS IN THE BOX */}
+          <div className={style.partsDetatilSectionTwo}>
+            <h2>WHAT IS IN THE BOX</h2>
           </div>
           <div className={style.partsDetailMoreContainer}>
             <ul>
@@ -241,15 +226,11 @@ function PartsDetail() {
               ))}
             </ul>
           </div>
-        </section>
-
-        {/* KIT FEATURES */}
-        <section>
-          <div className={style.partsDetailSimilarContainer}>
-            <div className={style.partsDetatilSection}>
-              <h2 className={style.partsDetailSectionTitle}>KIT FEATURES</h2>
-            </div>
+          {/* KIT FEATURES */}
+          <div className={style.partsDetatilSectionTwo}>
+            <h2>KIT FEATURES</h2>
           </div>
+
           <div className={style.partsDetailMoreContainer}>
             <ul>
               {part.kitFeatures.map((element, index) => (
@@ -259,23 +240,41 @@ function PartsDetail() {
               ))}
             </ul>
           </div>
-        </section>
-
-        {/* REVIEWS */}
-        <section>
+          {/* REVIEWS */}
           <div className={style.partsDetailSimilarContainer}>
             <div className={style.partsDetatilSection}>
               <h2 className={style.partsDetailSectionTitle}>REVIEWS</h2>
             </div>
           </div>
-          <p>
-            <span>-</span> No reviews collected for this product yet{" "}
-            <span>-</span>
-          </p>
-          <p>Be the first to write a review</p>
+          {comments && comments.length > 0 ? (
+            <ul>
+              {comments.map((comment) => (
+                <li key={comment._id}>
+                  <p>{comment.text}</p>
+                  <p>{comment.author.firstname}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <>
+              <p>
+                <span>-</span> No reviews collected for this product yet{" "}
+                <span>-</span>
+              </p>
+              <p>Be the first to write a review</p>
+            </>
+          )}
+          <form onSubmit={(e) => reviewSend(e, part._id)}>
+            <textarea
+              placeholder="Write your review..."
+              rows={4}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
+            <button type="submit">SEND</button>
+          </form>
         </section>
       </section>
-
       <Footer />
     </>
   );

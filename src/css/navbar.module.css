@@ -133,3 +133,16 @@
   position: absolute;
   top: 0;
 }
+
+.navLogOut {
+  color: rgb(168, 168, 168);
+  font-size: 1.3rem;
+  transition: 0.5s;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.navLogOut:hover {
+  color: rgb(240, 240, 240);
+}

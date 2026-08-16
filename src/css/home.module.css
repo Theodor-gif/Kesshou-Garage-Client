@@ -52,6 +52,7 @@
   padding: 17.5px 30px;
   font-size: 1.3rem;
   transition: 0.7s;
+  cursor: pointer;
 }
 
 .homeContBtn:hover {

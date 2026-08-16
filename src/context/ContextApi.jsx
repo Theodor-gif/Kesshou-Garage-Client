@@ -136,6 +136,21 @@ export default function ContextProvider({ children }) {
     navigate("/");
   }
 
+  async function deleteCartItem(id) {
+    try {
+      const currentToken = localStorage.getItem("token");
+      const response = await api.delete(`/cart/${id}`, {
+        headers: {
+          Authorization: `Bearer ${currentToken}`,
+        },
+      });
+
+      setCart(response.data.cart);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   // Runs once on mount: restore login state from a saved token (if valid/not expired),
   // and load the initial cars/parts data.
   useEffect(() => {
@@ -193,6 +208,7 @@ export default function ContextProvider({ children }) {
         cart,
         getCart,
         logoutUser,
+        deleteCartItem,
       }}
     >
       {children}

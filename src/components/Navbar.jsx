@@ -77,9 +77,11 @@ function NavBar() {
           PARTS
         </Link>
         <Link to="/partsdetail" className={style.navAbout}>
-          ABOUT
+          ABOUT US
         </Link>
-        <button onClick={logoutUser}>Log out</button>
+        <button onClick={logoutUser} className={style.navLogOut}>
+          LOG OUT
+        </button>
       </section>
       {popUp && <NavbarPopup />}
     </nav>

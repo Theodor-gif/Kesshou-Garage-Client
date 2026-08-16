@@ -22,6 +22,10 @@ function PartsDetail() {
 
   const part = parts.find((c) => c._id === id);
 
+  if (!part) {
+    return <h1>Product not found</h1>;
+  }
+
   let similarParts = parts.filter(
     (element) => element.categoryName === part.categoryName,
   );
@@ -104,8 +108,174 @@ function PartsDetail() {
           </div>
         </section>
 
-        {/* ...rest of your sections stay exactly the same... */}
+        {/* SIMILAR PRODUCTS */}
+        <section>
+          <div className={style.partsDetailSimilarContainer}>
+            <div className={style.partsDetatilSection}>
+              <h2 className={style.partsDetailSectionTitle}>
+                SIMILAR PRODUCTS
+              </h2>
+            </div>
+          </div>
+          <div className={style.partsSimilar}>
+            <div className={style.partsDetailbtnContainer}>
+              <button
+                type="button"
+                className={style.partsDetailbtn}
+                onClick={handleLeft}
+                disabled={index === 0}
+              >
+                <ArrowBackIosIcon sx={{ fontSize: 75 }} />
+              </button>
+            </div>
+
+            {visibleParts.map((element) => (
+              <Link
+                key={element._id}
+                to={`/partsdetail/${element._id}`}
+                className={style.partsSimilarSlide}
+              >
+                <div
+                  className={style.partsDetailImage}
+                  style={{
+                    backgroundImage: `url(${element.image})`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    width: "250px",
+                    height: "250px",
+                  }}
+                ></div>
+                <div>
+                  <h3 className={style.partsDetailSectionName}>
+                    {element.name}
+                  </h3>
+                  <p className={style.partsDetailSectionPrice}>
+                    {element.price} &euro;
+                  </p>
+                </div>
+              </Link>
+            ))}
+
+            <div className={style.partsDetailbtnContainer}>
+              <button
+                type="button"
+                className={style.partsDetailbtn}
+                onClick={handleRight}
+                disabled={index >= restParts.length - visibleCount}
+              >
+                <ArrowForwardIosIcon sx={{ fontSize: 75 }} />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* DESCRIPTION */}
+        <section>
+          <div className={style.partsDetailSimilarContainer}>
+            <div className={style.partsDetatilSection}>
+              <h2 className={style.partsDetailSectionTitle}>DESCRIPTION</h2>
+            </div>
+          </div>
+          <div className={style.partsDetailMoreContainer}>
+            <p className={style.partsDetailMoreIn}>{part.description}</p>
+          </div>
+        </section>
+
+        {/* COMPATIBLE WITH */}
+        <section>
+          <div className={style.partsDetailSimilarContainer}>
+            <div className={style.partsDetatilSection}>
+              <h2 className={style.partsDetailSectionTitle}>
+                COMPATIBLE MODELS
+              </h2>
+            </div>
+          </div>
+          <div className={style.partsDetailMoreContainer}>
+            <ul>
+              {part.compatibleWith.map((element, index) => (
+                <li className={style.partsDetailMoreIn} key={index}>
+                  {element}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* SPECS */}
+        <section>
+          <div className={style.partsDetailSimilarContainer}>
+            <div className={style.partsDetatilSection}>
+              <h2 className={style.partsDetailSectionTitle}>SPECS</h2>
+            </div>
+          </div>
+          <div className={style.partsDetailMoreContainer}>
+            <ul>
+              {Object.entries(part.specs).map(([specName, specValue]) => (
+                <li className={style.partsDetailMoreIn} key={specName}>
+                  <strong>
+                    {specName.charAt(0).toUpperCase() + specName.slice(1)}:
+                  </strong>{" "}
+                  {specValue}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* WHAT IS IN THE BOX */}
+        <section>
+          <div className={style.partsDetailSimilarContainer}>
+            <div className={style.partsDetatilSection}>
+              <h2 className={style.partsDetailSectionTitle}>
+                WHAT IS IN THE BOX
+              </h2>
+            </div>
+          </div>
+          <div className={style.partsDetailMoreContainer}>
+            <ul>
+              {part.whatsInTheBox.map((item, index) => (
+                <li className={style.partsDetailMoreIn} key={index}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* KIT FEATURES */}
+        <section>
+          <div className={style.partsDetailSimilarContainer}>
+            <div className={style.partsDetatilSection}>
+              <h2 className={style.partsDetailSectionTitle}>KIT FEATURES</h2>
+            </div>
+          </div>
+          <div className={style.partsDetailMoreContainer}>
+            <ul>
+              {part.kitFeatures.map((element, index) => (
+                <li className={style.partsDetailMoreIn} key={index}>
+                  {element}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* REVIEWS */}
+        <section>
+          <div className={style.partsDetailSimilarContainer}>
+            <div className={style.partsDetatilSection}>
+              <h2 className={style.partsDetailSectionTitle}>REVIEWS</h2>
+            </div>
+          </div>
+          <p>
+            <span>-</span> No reviews collected for this product yet{" "}
+            <span>-</span>
+          </p>
+          <p>Be the first to write a review</p>
+        </section>
       </section>
+
       <Footer />
     </>
   );

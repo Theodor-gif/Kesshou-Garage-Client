@@ -21,6 +21,10 @@ function PartsDetail() {
     commentEach(id);
   }, [id]);
 
+  useEffect(() => {
+    commentEach(id);
+  }, [comments]);
+
   if (!parts || parts.length === 0) {
     return <h1>Loading...</h1>;
   }

@@ -175,7 +175,7 @@ export default function ContextProvider({ children }) {
           },
         },
       );
-      setText(""); // clear the textarea after a successful submit
+      setText("");
     } catch (error) {
       console.log(error);
     }

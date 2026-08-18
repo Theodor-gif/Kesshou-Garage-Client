@@ -166,7 +166,9 @@ export default function ContextProvider({ children }) {
     e.preventDefault();
     try {
       const currentToken = localStorage.getItem("token");
-      const response = await api.post(
+
+      // 1. Submit the new comment to the backend
+      await api.post(
         `/comment/parts/${partId}/comments`,
         { text },
         {
@@ -175,6 +177,11 @@ export default function ContextProvider({ children }) {
           },
         },
       );
+
+      // 2. Fetch the updated array from the server immediately
+      await commentEach(partId);
+
+      // 3. Clear the input text box
       setText("");
     } catch (error) {
       console.log(error);

@@ -1,15 +1,16 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
+// 📦 Re-exported so your existing files can read it without changing a single line!
 export const contextData = createContext();
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
-export default function ContextProvider({ children }) {
+function ContextProvider({ children }) {
   const [registration, setRegistration] = useState(true);
   const [login, setLogin] = useState(false);
   const [cars, setCars] = useState([]);
@@ -119,11 +120,13 @@ export default function ContextProvider({ children }) {
   async function getCart() {
     try {
       const currentToken = localStorage.getItem("token");
+      if (!currentToken) return;
       const response = await api.get("/cart", {
         headers: {
           Authorization: `Bearer ${currentToken}`,
         },
       });
+
       setCart(response.data);
     } catch (error) {
       console.log(error);
@@ -138,14 +141,14 @@ export default function ContextProvider({ children }) {
     navigate("/");
   }
 
-  async function commentEach(partId) {
+  const commentEach = useCallback(async (partId) => {
     try {
       const response = await api.get(`/comment/parts/${partId}/comments`);
       setComments(response.data);
     } catch (error) {
       console.log(error);
     }
-  }
+  }, []);
 
   async function deleteCartItem(id) {
     try {
@@ -188,8 +191,6 @@ export default function ContextProvider({ children }) {
     }
   }
 
-  // Runs once on mount: restore login state from a saved token (if valid/not expired),
-  // and load the initial cars/parts data.
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
 
@@ -257,3 +258,7 @@ export default function ContextProvider({ children }) {
     </contextData.Provider>
   );
 }
+
+// 🛠️ THE CRITICAL COMPLIANCE FIX:
+// Naming the component clearly before exporting tells Vite exactly how to track it.
+export default ContextProvider;

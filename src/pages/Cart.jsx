@@ -10,18 +10,13 @@ import CartBinIcon from "../assets/CartBin-icon.png";
 function Cart() {
   const { cart, getCart, userName, deleteCartItem } = useContext(contextData);
 
-  // Only fetch the cart once we know a user is logged in.
-  // userName starts empty and gets set asynchronously (after the token-decode
-  // effect in ContextApi runs), so this re-runs once that happens.
+  // Hook handles base initialization tasks cleanly on page load
   useEffect(() => {
-    if (userName) {
-      getCart();
-    }
-  }, [userName]);
+    getCart();
+  }, []);
 
-  // No logged-in user — show the "log in to see your cart" state.
-  // This never touches `cart`, so it doesn't matter that it hasn't been fetched.
-  if (userName.length === 0) {
+  // 1. Condition: User is not authenticated/logged in
+  if (!userName || userName.length === 0) {
     return (
       <>
         <NavBar />
@@ -43,13 +38,12 @@ function Cart() {
     );
   }
 
-  // Logged in, but the cart hasn't come back from getCart() yet.
-  if (!cart) {
-    return null; // or a loading spinner/skeleton if you want something visible here
-  }
+  // 🛠️ FIX 1: Create a safe array lookup wrapper BEFORE checking lengths.
+  // If the backend returns null or an uninitialized object, this defaults cleanly to an empty array.
+  const safeItems = cart?.items || cart?.products || [];
 
-  // Logged in, cart loaded, but it's empty.
-  if (cart.items.length === 0) {
+  // 2. Condition: The user is logged in, but the backend record has no items yet (New User)
+  if (!cart || safeItems.length === 0) {
     return (
       <>
         <NavBar />
@@ -71,41 +65,48 @@ function Cart() {
     );
   }
 
+  // 3. Condition: Cart loaded successfully with products
   return (
     <>
       <NavBar />
       <main className={style.mainCartExistUser}>
         <h1 className={style.cartTitle}>
-          Your shopping cart has {cart.items.length} product
-          {cart.items.length > 1 ? "s" : ""}
+          Your shopping cart has {safeItems.length} product
+          {safeItems.length > 1 ? "s" : ""}
         </h1>
         <ul className={style.cartListContainer}>
-          {cart.items.map((item) => (
-            <li key={item._id} className={style.cartListItem}>
-              <picture className={style.cartItemPicContainer}>
-                <img src={item.part.image} alt={item.part.name} width="150" />
-              </picture>
-              <section className={style.cartItemInfo}>
-                <p>{item.part.name}</p>
-                <p>Quantity: {item.quantity}</p>
-                <p>Price: {item.price} &euro;</p>
-              </section>
-              <section className={style.cartItemContainerBin}>
-                <button
-                  className={style.cartItemBinBtn}
-                  onClick={() => deleteCartItem(item._id)}
-                >
-                  <img src={CartBinIcon} alt="" width="25" />
-                </button>
-              </section>
-            </li>
-          ))}
+          {safeItems.map((item) => {
+            const productData = item.part || item.product || {};
+            const productName = productData.name || "Vehicle Part";
+            const productImage = productData.image || "";
+
+            return (
+              <li key={item._id} className={style.cartListItem}>
+                <picture className={style.cartItemPicContainer}>
+                  <img src={productImage} alt={productName} width="150" />
+                </picture>
+                <section className={style.cartItemInfo}>
+                  <p>{productName}</p>
+                  <p>Quantity: {item.quantity}</p>
+                  <p>Price: {item.price || productData.price} &euro;</p>
+                </section>
+                <section className={style.cartItemContainerBin}>
+                  <button
+                    className={style.cartItemBinBtn}
+                    onClick={() => deleteCartItem(item._id)}
+                  >
+                    <img src={CartBinIcon} alt="" width="25" />
+                  </button>
+                </section>
+              </li>
+            );
+          })}
         </ul>
         <section className={style.cartTotalContainer}>
           <div className={style.cartLine}></div>
           <section className={style.cartTotal}>
             <p>Total</p>
-            <p>{cart.total > "0" ? `${cart.total}` : "0"} &euro;</p>
+            <p>{cart?.total > 0 ? `${cart.total}` : "0"} &euro;</p>
           </section>
         </section>
       </main>

@@ -14,7 +14,7 @@ import RaysImage from "../assets/brands/Rays-image.png";
 import TeinImage from "../assets/brands/Tein-image.png";
 import WhitelineImage from "../assets/brands/Whiteline-image.png";
 import WilwoodImage from "../assets/brands/Wilwood-image.png";
-import BrakingImage from "../assets/Category-images/Braking-Image.png";
+import BrakingImage from "../assets/Category-images/Braking-image.png";
 import ClutchImage from "../assets/Category-images/Clutch-image.png";
 import CoiloversImage from "../assets/Category-images/Coilovers-image.png";
 import LightingImage from "../assets/Category-images/Lighting-image.png";

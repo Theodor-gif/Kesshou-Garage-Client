@@ -121,3 +121,41 @@
   transform: translateY(0);
   opacity: 1;
 }
+
+@media (max-width: 480px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .heroPartOne {
+    display: flex;
+    gap: 20px;
+  }
+
+  .heroTag {
+    font-size: 1.5rem;
+  }
+
+  .heroBrand {
+    font-size: 1.3rem;
+  }
+
+  .heroModel {
+    font-size: 1.7rem;
+  }
+
+  .heroArrowTitle {
+    font-size: 1.1rem;
+  }
+
+  .heroArrow {
+    width: 75px;
+    height: 20px;
+  }
+
+  .heroPartTwo {
+    display: none;
+  }
+}

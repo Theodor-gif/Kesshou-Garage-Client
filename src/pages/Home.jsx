@@ -113,7 +113,12 @@ function Home() {
             <Link to={`/models/${idFour}`} className={style.homeDeBtn}>
               DISCOVER
             </Link>
-            <img src={arrow} height="30" width="150" />
+            <img
+              className={style.homeArrow2}
+              src={arrow}
+              height="30"
+              width="150"
+            />
           </div>
         </div>
       </section>
@@ -159,7 +164,12 @@ function Home() {
             <Link to={`/models/${idFive}`} className={style.homeDeBtn}>
               DISCOVER
             </Link>
-            <img src={arrow} height="30" width="150" />
+            <img
+              className={style.homeArrow2}
+              src={arrow}
+              height="30"
+              width="150"
+            />
           </div>
         </div>
       </section>

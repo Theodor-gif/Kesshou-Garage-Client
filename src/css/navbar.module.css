@@ -146,3 +146,55 @@
 .navLogOut:hover {
   color: rgb(240, 240, 240);
 }
+
+@media (max-width: 480px) {
+  * {
+    overflow-x: hidden;
+  }
+  .navbar {
+    width: 100%;
+    justify-content: center;
+    height: 10hv;
+  }
+
+  .intro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav1 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav2 {
+    border-top: 1px solid green;
+    border-bottom: 1px solid green;
+    width: 80%;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .SearchIcon {
+    border: 1px solid red;
+  }
+
+  .navRoute {
+    border: 1px solid red;
+  }
+
+  .BurgerIcon {
+    border: 1px solid red;
+  }
+
+  .nav3 {
+    display: none;
+  }
+}

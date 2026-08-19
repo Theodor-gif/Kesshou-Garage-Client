@@ -5,6 +5,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import MenuIcon from "@mui/icons-material/Menu";
 import style from "../css/navbar.module.css";
 import { Link } from "react-router-dom";
 import NavbarPopup from "../components/NavbarPopup.jsx";
@@ -60,6 +61,10 @@ function NavBar() {
               />
             </Badge>
           </Link>
+          <MenuIcon
+            className={style.BurgerIcon}
+            sx={{ fontSize: 30, color: "#b8b8b8" }}
+          ></MenuIcon>
         </section>
       </div>
       <section className={style.nav3}>

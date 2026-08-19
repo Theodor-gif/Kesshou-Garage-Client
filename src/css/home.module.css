@@ -200,3 +200,56 @@
   background-color: #0b1a1f;
   margin-bottom: 80px;
 }
+
+@media (max-width: 480px) {
+  .homeContainerOne {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homeContSmall {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .homeContSmallTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homeDeBrand {
+    font-size: 1.3rem;
+  }
+
+  .homeDeModel {
+    font-size: 1.7rem;
+  }
+
+  .homeDeBtn {
+    font-size: 1.1rem;
+  }
+
+  .homeArrow2 {
+    width: 75px;
+    height: 20px;
+  }
+
+  .homeSectionPart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homeCategoryFigure {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+}

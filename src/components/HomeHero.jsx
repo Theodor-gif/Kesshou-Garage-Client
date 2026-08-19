@@ -50,7 +50,12 @@ function HomeHero() {
           <Link className={style.heroArrowTitle} to={`/models/${car._id}`}>
             DISCOVER
           </Link>
-          <img src={arrow} height="30" width="150" />
+          <img
+            className={style.heroArrow}
+            src={arrow}
+            height="30"
+            width="150"
+          />
         </div>
       </div>
       <div className={style.heroPartTwo}>

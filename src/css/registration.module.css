@@ -121,6 +121,12 @@
     width: 100vw;
     height: 100vh;
     background-color: #0b1a1f80;
+    position: static;
+    border: 1px solid red;
+  }
+
+  .registercontainer {
+    border: 1px solid red;
   }
   .regp {
     color: #d3e5f1;
@@ -140,8 +146,9 @@
     gap: 10px;
   }
   .regReturnContainer {
-    bottom: 5px;
-    position: fixed;
+    border: 1px solid red;
+    margin-top: 50px;
+    bottom: 2px;
   }
   .registerBack {
     color: #d3e5f1;

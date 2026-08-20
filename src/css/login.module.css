@@ -102,6 +102,9 @@
     position: static;
     padding-top: 20px;
   }
+  .logcontainer {
+    width: 90%;
+  }
   .logp {
     color: #d3e5f1;
   }

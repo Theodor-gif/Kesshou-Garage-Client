@@ -25,7 +25,7 @@ function Footer() {
     <footer className={style.footermain}>
       <div className={style.footerMainContainer}>
         <div className={style.footercontainer1}>
-          <div>
+          <div className={style.footer1}>
             <h2 className={style.footerTitle}>MODELS</h2>
             <ul className={style.footerList}>
               {cars.slice(0, 5).map((car) => (
@@ -37,7 +37,7 @@ function Footer() {
               ))}
             </ul>
           </div>
-          <div>
+          <div className={style.footer2}>
             <h2 className={style.footerTitle}>NAVIGATION</h2>
             <ul className={style.footerList}>
               <Link to="/" className={style.footerLink}>
@@ -56,7 +56,12 @@ function Footer() {
           </div>
         </div>
         <div className={style.footerSmall}>
-          <img src={logo} alt="Logo" width="100" />
+          <img
+            className={style.footerLogo2}
+            src={logo}
+            alt="Logo"
+            width="100"
+          />
           <div className={style.footerCopy}>
             <small className={style.footerRight}>COOKIE POLICY</small>
             <small className={style.footerRight}>GENDER GAP REPORT</small>

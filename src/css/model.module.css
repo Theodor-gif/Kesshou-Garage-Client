@@ -230,6 +230,9 @@
 }
 
 @media (max-width: 480px) {
+  .modelmain {
+    overflow-x: hidden;
+  }
   .modelBrand {
     font-size: 2rem;
   }

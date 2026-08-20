@@ -94,3 +94,29 @@
   color: rgb(148, 148, 148);
   font-size: 1.2rem;
 }
+
+@media (max-width: 480px) {
+  .logmain {
+    width: 100vw;
+    background-color: #0b1a1f80;
+    position: static;
+    padding-top: 20px;
+  }
+  .logp {
+    color: #d3e5f1;
+  }
+  .loglabel {
+    font-size: 1.3rem;
+    margin: 7.5px 0;
+    color: #d3e5f1;
+  }
+  .logArrow {
+    color: #d3e5f1;
+  }
+
+  .logBack {
+    text-decoration: none;
+    color: #d3e5f1;
+    font-size: 1.2rem;
+  }
+}

@@ -125,9 +125,10 @@
   }
 
   .registercontainer {
-    height: 2000px;
+    height: 100%;
     margin: 0 auto;
     border: 1px solid red;
+    margin-bottom: 50px;
   }
   .regp {
     color: #d3e5f1;

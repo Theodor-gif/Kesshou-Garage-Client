@@ -140,7 +140,8 @@
     gap: 10px;
   }
   .regReturnContainer {
-    bottom: 10px;
+    bottom: 5px;
+    position: fixed;
   }
   .registerBack {
     color: #d3e5f1;

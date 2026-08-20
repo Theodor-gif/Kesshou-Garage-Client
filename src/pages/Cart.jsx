@@ -22,7 +22,12 @@ function Cart() {
         <NavBar />
         <main className={style.mainCartExistUser}>
           <picture className={style.cartPictureContainer}>
-            <img src={ShopCartIcon} alt="" width="150" />
+            <img
+              className={style.cartI}
+              src={ShopCartIcon}
+              alt=""
+              width="150"
+            />
           </picture>
           <h1 className={style.cartTitle}>Your shopping cart is empty</h1>
           <p className={style.cartParagraph}>
@@ -49,7 +54,12 @@ function Cart() {
         <NavBar />
         <main className={style.mainCartExistUser}>
           <picture className={style.cartPictureContainer}>
-            <img src={ShopCartIcon} alt="" width="150" />
+            <img
+              className={style.cartI}
+              src={ShopCartIcon}
+              alt=""
+              width="150"
+            />
           </picture>
           <h1 className={style.cartTitle}>Your shopping cart is empty</h1>
           <p className={style.cartParagraph}>
@@ -83,7 +93,12 @@ function Cart() {
             return (
               <li key={item._id} className={style.cartListItem}>
                 <picture className={style.cartItemPicContainer}>
-                  <img src={productImage} alt={productName} width="150" />
+                  <img
+                    className={style.cartIt}
+                    src={productImage}
+                    alt={productName}
+                    width="150"
+                  />
                 </picture>
                 <section className={style.cartItemInfo}>
                   <p>{productName}</p>
@@ -95,7 +110,12 @@ function Cart() {
                     className={style.cartItemBinBtn}
                     onClick={() => deleteCartItem(item._id)}
                   >
-                    <img src={CartBinIcon} alt="" width="25" />
+                    <img
+                      className={style.cartBin}
+                      src={CartBinIcon}
+                      alt=""
+                      width="25"
+                    />
                   </button>
                 </section>
               </li>

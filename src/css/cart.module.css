@@ -115,3 +115,42 @@
   font-size: 1.5rem;
   color: #d3e5f1;
 }
+
+@media (max-width: 480px) {
+  .mainCartExistUser {
+    min-height: 60vh;
+  }
+  .cartPictureContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cartI {
+    width: 80px;
+  }
+  .cartTitle {
+    font-size: 1.5rem;
+  }
+  .cartParagraph {
+    font-size: 1.2rem;
+    width: 95%;
+    text-align: center;
+  }
+  .cartBtn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  .cartListItem {
+    height: 90px;
+  }
+  .cartIt {
+    width: 60px;
+  }
+  .cartItemInfo {
+    font-size: 1rem;
+  }
+  .cartBin {
+    width: 17.5px;
+  }
+}

@@ -15,6 +15,7 @@ import { contextData } from "../context/ContextApi.jsx";
 function NavBar() {
   const [popUp, setPopUp] = useState(false);
   const { userName, logoutUser, cart } = useContext(contextData);
+  const [menu, setMenu] = useState(false);
 
   const cartItemCount =
     cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
@@ -64,6 +65,7 @@ function NavBar() {
           <MenuIcon
             className={style.BurgerIcon}
             sx={{ fontSize: 30, color: "#b8b8b8" }}
+            onClick={() => setMenu((prev) => !prev)}
           ></MenuIcon>
         </section>
       </div>
@@ -89,6 +91,22 @@ function NavBar() {
         </button>
       </section>
       {popUp && <NavbarPopup />}
+      {menu && (
+        <section className={style.pop2Main}>
+          <Link className={style.pop2Item} to="/">
+            HOME
+          </Link>
+          <Link className={style.pop2Item} to="/parts">
+            PARTS
+          </Link>
+          <Link className={style.pop2Item} to="/partsdetail">
+            ABOUT US
+          </Link>
+          <button className={style.pop2Item} onClick={logoutUser}>
+            LOG OUT
+          </button>
+        </section>
+      )}
     </nav>
   );
 }

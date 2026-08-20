@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { contextData } from "../context/ContextApi.jsx";
 import style from "../css/parts.module.css";
 import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function Parts() {
   const { parts } = useContext(contextData);
@@ -14,6 +15,7 @@ function Parts() {
   const [steering, setSteering] = useState(false);
   const [wheel, setWheel] = useState(false);
   const [braking, setBraking] = useState(false);
+  const [menu, setMenu] = useState(true);
 
   if (!parts || parts.lenght === 0) {
     return <h1>Loading ...</h1>;
@@ -63,6 +65,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
+    setMenu(false);
   }
 
   function getCoilovers() {
@@ -73,6 +76,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
+    setMenu(false);
   }
 
   function getFlywheels() {
@@ -83,6 +87,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
+    setMenu(false);
   }
 
   function getBrakings() {
@@ -93,6 +98,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
+    setMenu(false);
   }
 
   function getWheels() {
@@ -103,6 +109,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(true);
+    setMenu(false);
   }
 
   function getLightings() {
@@ -113,6 +120,7 @@ function Parts() {
     setLighting(true);
     setSteering(false);
     setWheel(false);
+    setMenu(false);
   }
 
   function getSteerings() {
@@ -123,38 +131,49 @@ function Parts() {
     setLighting(false);
     setSteering(true);
     setWheel(false);
+    setMenu(false);
   }
 
   return (
     <>
       <NavBar />
       <section className={style.partsMain}>
-        <section className={style.partsContainerOne}>
-          <h2 className={style.partsContTitle}>CATEGORIES</h2>
-          <ul className={style.partsContList}>
-            <li className={style.partsItem} onClick={() => getAllParts()}>
-              All products
-            </li>
-            <li className={style.partsItem} onClick={() => getWheels()}>
-              Wheels
-            </li>
-            <li className={style.partsItem} onClick={() => getSteerings()}>
-              Steering
-            </li>
-            <li className={style.partsItem} onClick={() => getFlywheels()}>
-              Flywheel
-            </li>
-            <li className={style.partsItem} onClick={() => getLightings()}>
-              Lighting
-            </li>
-            <li className={style.partsItem} onClick={() => getCoilovers()}>
-              Coilovers
-            </li>
-            <li className={style.partsItem} onClick={() => getBrakings()}>
-              Braking
-            </li>
-          </ul>
-        </section>
+        {menu && (
+          <section className={style.partsContainerOne}>
+            <h2 className={style.partsContTitle}>CATEGORIES</h2>
+            <ul className={style.partsContList}>
+              <li className={style.partsItem} onClick={() => getAllParts()}>
+                All products
+              </li>
+              <li className={style.partsItem} onClick={() => getWheels()}>
+                Wheels
+              </li>
+              <li className={style.partsItem} onClick={() => getSteerings()}>
+                Steering
+              </li>
+              <li className={style.partsItem} onClick={() => getFlywheels()}>
+                Flywheel
+              </li>
+              <li className={style.partsItem} onClick={() => getLightings()}>
+                Lighting
+              </li>
+              <li className={style.partsItem} onClick={() => getCoilovers()}>
+                Coilovers
+              </li>
+              <li className={style.partsItem} onClick={() => getBrakings()}>
+                Braking
+              </li>
+            </ul>
+          </section>
+        )}
+        <MenuIcon
+          onClick={() => setMenu((prev) => !prev)}
+          className={style.partsMenu}
+          sx={{
+            fontSize: 50,
+            color: "white",
+          }}
+        ></MenuIcon>
         <section className={style.partsContainerTwo}>
           <div className={style.partsContainerIn}>
             {all &&

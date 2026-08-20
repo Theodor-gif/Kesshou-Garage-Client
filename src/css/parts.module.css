@@ -104,3 +104,30 @@
   font-size: 1.3rem;
   color: rgb(148, 148, 148);
 }
+
+.partsMenu {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .partsMain {
+    position: relative;
+  }
+  .partsContainerOne {
+    position: absolute;
+    width: 100vw;
+    height: 700px;
+    top: 80px;
+  }
+  .partsMenu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .partsProDiv {
+    height: 125px;
+  }
+  .partName {
+    font-size: 1.1rem;
+  }
+}

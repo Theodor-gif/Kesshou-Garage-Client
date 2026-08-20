@@ -147,10 +147,11 @@
   color: rgb(240, 240, 240);
 }
 
+.BurgerIcon {
+  display: none !important;
+}
+
 @media (max-width: 480px) {
-  * {
-    overflow-x: hidden;
-  }
   .navbar {
     width: 100%;
     justify-content: center;
@@ -173,8 +174,7 @@
   }
 
   .nav2 {
-    border-top: 1px solid green;
-    border-bottom: 1px solid green;
+    border-top: 1px solid #00e5ff;
     width: 80%;
     margin: 20px 0 0 0;
     display: flex;
@@ -182,19 +182,35 @@
     padding: 15px 0;
   }
 
-  .SearchIcon {
-    border: 1px solid red;
-  }
-
-  .navRoute {
-    border: 1px solid red;
-  }
-
   .BurgerIcon {
-    border: 1px solid red;
+    display: block !important;
   }
 
   .nav3 {
     display: none;
+  }
+  .pop2Main {
+    position: absolute;
+    top: 110%;
+    right: 20px;
+    width: 35%;
+    background-color: #1d2226;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+  }
+  .pop2Item {
+    font-size: 1rem;
+    color: rgb(148, 148, 148);
+    cursor: pointer;
+    padding: 15px 0;
+    border: 1px solid #00e5ff;
+    text-align: center;
+    width: 100%;
+    background-color: #1d2226;
+  }
+  .pop2Item:hover {
+    color: rgb(240, 240, 240);
+    background-color: #343e43;
   }
 }

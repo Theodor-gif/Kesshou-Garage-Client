@@ -118,6 +118,7 @@
 
 @media (max-width: 480px) {
   .registermain {
+    height: 955px;
     width: 100vw;
     background-color: #0b1a1f80;
     position: static;

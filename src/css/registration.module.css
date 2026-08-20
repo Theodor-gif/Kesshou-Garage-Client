@@ -122,11 +122,12 @@
     height: 100vh;
     background-color: #0b1a1f80;
     position: static;
-    border: 1px solid red;
+    padding-top: 20px;
   }
 
   .registercontainer {
-    border: 1px solid red;
+    height: 100%;
+    margin: 0 auto;
   }
   .regp {
     color: #d3e5f1;
@@ -146,9 +147,10 @@
     gap: 10px;
   }
   .regReturnContainer {
-    border: 1px solid red;
-    margin-top: 50px;
-    bottom: 2px;
+    margin: 0 auto;
+    position: inherit;
+    margin-bottom: 40px;
+    margin-right: 62.5px;
   }
   .registerBack {
     color: #d3e5f1;

@@ -95,9 +95,9 @@ function Home() {
       </section>
       <section className={style.homeContainerTwo}>
         <div className={style.homeContainerImg}>
-          <img src={imgOne} width="350" />
-          <img src={imgTwo} width="350" />
-          <img src={imgThree} width="350" />
+          <img className={style.homeImg} src={imgOne} width="350" />
+          <img className={style.homeImg} src={imgTwo} width="350" />
+          <img className={style.homeImg} src={imgThree} width="350" />
         </div>
       </section>
       <section
@@ -175,9 +175,9 @@ function Home() {
       </section>
       <section className={style.homeContainerTwo}>
         <div className={style.homeContainerImg}>
-          <img src={imgFour} width="350" />
-          <img src={imgFive} width="350" />
-          <img src={imgSix} width="350" />
+          <img className={style.homeImg} src={imgFour} width="350" />
+          <img className={style.homeImg} src={imgFive} width="350" />
+          <img className={style.homeImg} src={imgSix} width="350" />
         </div>
       </section>
       <section className={style.homeContainerOne}>

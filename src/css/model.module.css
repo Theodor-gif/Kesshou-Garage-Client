@@ -228,3 +228,81 @@
   right: 30px;
   z-index: 1;
 }
+
+@media (max-width: 480px) {
+  .modelBrand {
+    font-size: 2rem;
+  }
+  .modelModel {
+    font-size: 2.5rem;
+  }
+  .modelNavBasic {
+    display: none;
+  }
+  .modelSectionPart {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modelInfoOne {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    text-align: center;
+  }
+  .modelContainerTwo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modelDeOne {
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .modelDeInfo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    margin: 0 auto 20px auto;
+    text-align: center;
+  }
+  .modelDeImg {
+    justify-content: center;
+    display: block;
+    margin-right: 20px;
+  }
+  .modelDePartTwo {
+    width: 50px;
+    height: 50px;
+  }
+  .modelSeperate {
+    width: 100%;
+    margin: 40px 0 20px 0;
+    height: 1000px;
+  }
+  .modelSepTag {
+    text-align: center;
+  }
+  .modelSepPar {
+    width: 90%;
+    margin: 0 auto 150px auto;
+    text-align: center;
+  }
+  .modelSepImgOne {
+    right: 450px;
+    width: 150px;
+  }
+  .modelSepImgTwo {
+    right: 30px;
+    width: 150px;
+    top: 600px;
+  }
+}

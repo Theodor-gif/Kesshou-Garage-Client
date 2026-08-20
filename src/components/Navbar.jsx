@@ -93,16 +93,32 @@ function NavBar() {
       {popUp && <NavbarPopup />}
       {menu && (
         <section className={style.pop2Main}>
-          <Link className={style.pop2Item} to="/">
+          <Link
+            className={style.pop2Item}
+            to="/"
+            onClick={() => setMenu((prev) => !prev)}
+          >
             HOME
           </Link>
-          <Link className={style.pop2Item} to="/parts">
+          <Link
+            className={style.pop2Item}
+            to="/parts"
+            onClick={() => setMenu((prev) => !prev)}
+          >
             PARTS
           </Link>
-          <Link className={style.pop2Item} to="/partsdetail">
+          <Link
+            className={style.pop2Item}
+            to="/partsdetail"
+            onClick={() => setMenu((prev) => !prev)}
+          >
             ABOUT US
           </Link>
-          <button className={style.pop2Item} onClick={logoutUser}>
+          <button
+            className={style.pop2Item}
+            onClick={logoutUser}
+            onClick={() => setMenu((prev) => !prev)}
+          >
             LOG OUT
           </button>
         </section>

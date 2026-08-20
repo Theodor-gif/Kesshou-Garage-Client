@@ -106,7 +106,23 @@
 }
 
 .partsMenu {
-  display: none;
+  display: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+  .partsContTitle {
+    font-size: 1.5rem;
+    padding-top: 40px;
+  }
+
+  .partsItem {
+    font-size: 1.2rem;
+  }
+
+  .partsContainerIn {
+    gap: 25px;
+    width: 98%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -123,6 +139,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    display: block !important;
   }
   .partsProDiv {
     height: 125px;

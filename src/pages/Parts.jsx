@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Parts() {
-  const { parts } = useContext(contextData);
+  const { parts, AddFav } = useContext(contextData);
   const [all, setAll] = useState(true);
   const [coilover, setCoilover] = useState(false);
   const [flywheel, setFlywheel] = useState(false);
@@ -178,26 +178,29 @@ function Parts() {
           <div className={style.partsContainerIn}>
             {all &&
               parts.map((part) => (
-                <Link to={`/partsdetail/${part._id}`} key={part._id}>
-                  {" "}
-                  <div className={style.partsMap}>
-                    <div
-                      className={style.partsImageContainer}
-                      style={{
-                        backgroundImage: `url(${part.image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    ></div>
-                    <div className={style.partsProDiv}>
-                      <h2 className={style.partName}>{part.name}</h2>
-                      <p className={style.partPrice}>{part.price} &euro;</p>
+                <div key={part._id}>
+                  <button onClick={() => AddFav(part._id)}>Add</button>
+                  <Link to={`/partsdetail/${part._id}`}>
+                    {" "}
+                    <div className={style.partsMap}>
+                      <div
+                        className={style.partsImageContainer}
+                        style={{
+                          backgroundImage: `url(${part.image})`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      ></div>
+                      <div className={style.partsProDiv}>
+                        <h2 className={style.partName}>{part.name}</h2>
+                        <p className={style.partPrice}>{part.price} &euro;</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               ))}
             {flywheel &&
               flywheels.map((part) => (

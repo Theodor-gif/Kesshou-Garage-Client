@@ -28,6 +28,7 @@ function ContextProvider({ children }) {
   const token = localStorage.getItem("token");
   const [text, setText] = useState("");
   const [comments, setComments] = useState([]);
+  const [fav, setFav] = useState([]);
 
   function registrationHandle() {
     setRegistration(false);
@@ -170,7 +171,6 @@ function ContextProvider({ children }) {
     try {
       const currentToken = localStorage.getItem("token");
 
-      // 1. Submit the new comment to the backend
       await api.post(
         `/comment/parts/${partId}/comments`,
         { text },
@@ -181,14 +181,22 @@ function ContextProvider({ children }) {
         },
       );
 
-      // 2. Fetch the updated array from the server immediately
       await commentEach(partId);
 
-      // 3. Clear the input text box
       setText("");
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function AddFav(id) {
+    const item = parts.find((p) => p._id === id);
+    if (!item) return; // no matching part found
+
+    const alreadyFav = fav.some((f) => f._id === id);
+    if (alreadyFav) return; // already favorited, don't add again
+
+    setFav((prev) => [...prev, item]);
   }
 
   useEffect(() => {
@@ -214,6 +222,8 @@ function ContextProvider({ children }) {
     getCars();
     getParts();
   }, []);
+
+  console.log(fav);
 
   return (
     <contextData.Provider
@@ -252,6 +262,9 @@ function ContextProvider({ children }) {
         reviewSend,
         commentEach,
         comments,
+        AddFav,
+        fav,
+        setFav,
       }}
     >
       {children}

@@ -14,7 +14,7 @@ import { contextData } from "../context/ContextApi.jsx";
 
 function NavBar() {
   const [popUp, setPopUp] = useState(false);
-  const { userName, logoutUser, cart } = useContext(contextData);
+  const { userName, logoutUser, cart, fav } = useContext(contextData);
   const [menu, setMenu] = useState(false);
 
   const cartItemCount =
@@ -32,7 +32,7 @@ function NavBar() {
             sx={{ fontSize: 30, color: "#b8b8b8" }}
           />
           <Link className={style.navRoute} to="/favorite">
-            <Badge badgeContent={2} color="primary">
+            <Badge badgeContent={fav.length} color="primary">
               <FavoriteIcon
                 className={style.FavoriteIcon}
                 sx={{ fontSize: 30, color: "#b8b8b8" }}

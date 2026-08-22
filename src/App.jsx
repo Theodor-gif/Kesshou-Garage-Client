@@ -8,6 +8,7 @@ import FavoritePage from "./pages/Favorites.jsx";
 import RegisterLoginPage from "./pages/RegisterLogin.jsx";
 import PartsDetail from "./pages/PartsDetail.jsx";
 import ScrollToTop from "../src/components/ScrollToTop.jsx";
+import About from "./pages/About.jsx";
 
 import "./App.css";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/account" element={<RegisterLoginPage />}></Route>
         <Route path="/favorite" element={<FavoritePage />}></Route>
         <Route path="/partsdetail/:id" element={<PartsDetail />}></Route>
+        <Route path="/about" element={<About />}></Route>
       </Routes>
     </main>
   );

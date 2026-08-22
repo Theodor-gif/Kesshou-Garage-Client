@@ -77,7 +77,9 @@ function Footer() {
         <div>
           <h2 className={style.footerTitle}>CONTACT</h2>
           <ul className={style.footerList}>
-            <li className={style.footerItem}>About us</li>
+            <Link to="/about">
+              <li className={style.footerItem}>About us</li>
+            </Link>
             <li className={style.footerItem}>Working at Kessho Garage</li>
             <li className={style.footerItem}>Kessho Garage Group</li>
           </ul>

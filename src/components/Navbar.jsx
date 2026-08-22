@@ -83,7 +83,7 @@ function NavBar() {
         <Link to="/parts" className={style.navParts}>
           PARTS
         </Link>
-        <Link to="/partsdetail" className={style.navAbout}>
+        <Link to="/about" className={style.navAbout}>
           ABOUT US
         </Link>
         <button onClick={logoutUser} className={style.navLogOut}>

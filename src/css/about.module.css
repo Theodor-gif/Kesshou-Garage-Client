@@ -1,0 +1,37 @@
+:root {
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #3a4048;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 47.5vh;
+  background-color: #3a4048;
+  font-weight: bolder;
+}
+
+.aboutTitle {
+  font-size: 1.6rem;
+  color: #b8b8b8;
+}
+
+.aboutPar {
+  font-size: 1.4rem;
+  width: 80%;
+  color: #0b1a1f;
+  line-height: 35px;
+  margin: 50px 0;
+}

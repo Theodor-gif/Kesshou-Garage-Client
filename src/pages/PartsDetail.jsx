@@ -247,31 +247,49 @@ function PartsDetail() {
             </div>
           </div>
           {comments && comments.length > 0 ? (
-            <ul>
-              {comments.map((comment) => (
-                <li key={comment._id}>
-                  <p>{comment.text}</p>
-                  <p>{comment.author.firstname}</p>
-                </li>
-              ))}
-            </ul>
+            <div className={style.partsDeCommentsContainer}>
+              <h3 className={style.partsDeCommentTitle}>Comments</h3>
+              <ul>
+                {comments.map((comment) => (
+                  <li key={comment._id} className={style.partsDeCommentItem}>
+                    <div className={style.partsDeAuthor}>
+                      <p>{comment.author.firstname}</p>
+                      <p>
+                        Date created :{" "}
+                        <span>{comment.createdAt.slice(0, 10)}</span>
+                      </p>
+                    </div>
+                    <p>{comment.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ) : (
-            <>
+            <div className={style.partDeNoComment}>
               <p>
                 <span>-</span> No reviews collected for this product yet{" "}
                 <span>-</span>
               </p>
               <p>Be the first to write a review</p>
-            </>
+            </div>
           )}
-          <form onSubmit={(e) => reviewSend(e, part._id)}>
+          <form
+            className={style.partsDeText}
+            onSubmit={(e) => reviewSend(e, part._id)}
+          >
+            <label htmlFor="textarea"></label>
             <textarea
+              className={style.partsTextarea}
+              id="textarea"
               placeholder="Write your review..."
-              rows={4}
+              rows={5}
+              cols={40}
               value={text}
               onChange={(e) => setText(e.target.value)}
             ></textarea>
-            <button type="submit">SEND</button>
+            <button className={style.partsDeCommentSubmit} type="submit">
+              SEND
+            </button>
           </form>
         </section>
       </section>

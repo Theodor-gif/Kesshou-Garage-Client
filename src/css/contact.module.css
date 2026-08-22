@@ -1,0 +1,115 @@
+:root {
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #3a4048;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.contactContainer {
+  display: flex;
+  background-color: #3a4048;
+  min-height: 55vh;
+}
+
+.contactContOne {
+  flex: 1;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 80%;
+  margin: 100px auto 0 auto;
+  border-radius: 20px;
+  padding: 50px;
+  background-color: #0b1a1f;
+  box-shadow: 50px 25px 70px #0b1a1f;
+}
+
+.contactLabel {
+  color: #00e5ff;
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+
+.contactInput {
+  font-size: 1.2rem;
+  width: 50%;
+  padding: 5px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.contactInputText {
+  border: none;
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.contactCheck {
+  display: flex;
+  align-items: first baseline;
+  gap: 20px;
+}
+
+.contactBtnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 50px;
+}
+
+.contactBtn {
+  height: 40px;
+  width: 150px;
+  background-color: #c81e3a;
+  font-size: 1.2rem;
+  color: rgb(165, 165, 165);
+  border: none;
+  cursor: pointer;
+}
+
+.contactBTn:hover {
+  background-color: #e80b30;
+  color: white;
+}
+.contactContTwo {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.contactBoxImageOne {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+
+  width: 100%;
+  padding-left: 50px;
+}
+
+.contactBoxImageTwo {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactImg {
+  box-shadow: 50px 25px 70px #0b1a1f;
+}

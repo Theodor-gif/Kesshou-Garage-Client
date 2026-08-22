@@ -80,6 +80,9 @@ function Footer() {
             <Link to="/about">
               <li className={style.footerItem}>About us</li>
             </Link>
+            <Link to="/contact">
+              <li className={style.footerItem}>Contact Us</li>
+            </Link>
             <li className={style.footerItem}>Working at Kessho Garage</li>
             <li className={style.footerItem}>Kessho Garage Group</li>
           </ul>

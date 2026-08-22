@@ -9,6 +9,7 @@ import RegisterLoginPage from "./pages/RegisterLogin.jsx";
 import PartsDetail from "./pages/PartsDetail.jsx";
 import ScrollToTop from "../src/components/ScrollToTop.jsx";
 import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
 
 import "./App.css";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/favorite" element={<FavoritePage />}></Route>
         <Route path="/partsdetail/:id" element={<PartsDetail />}></Route>
         <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
       </Routes>
     </main>
   );

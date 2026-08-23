@@ -1,0 +1,162 @@
+:root {
+  --navbar-bg: #d3e5f1;
+  --navbar-footer-bg: #05080a;
+  --body-bg: #0b1a1f;
+  --emphasis-letter-border: #00e5ff;
+  --important-button: #c81e3a;
+  --not-important: #898989;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.favContainer {
+  color: #d3e5f1;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #343e43;
+  position: relative;
+}
+
+.favNoFav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 300px;
+}
+
+.favTitle {
+  font-size: 3rem;
+  margin: 50px 0 20px 0;
+  text-align: center;
+}
+
+.favParagraph {
+  font-size: 1.5rem;
+  margin-bottom: 75px;
+}
+
+.favBtn {
+  text-decoration: none;
+  background-color: #c81e3a;
+  color: rgb(165, 165, 165);
+  padding: 17.5px 30px;
+  font-size: 1.3rem;
+  transition: 0.7s;
+  border: none;
+  cursor: pointer;
+}
+
+.favBtn:hover {
+  color: white;
+}
+
+.favHasContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 150px;
+}
+
+.favTitleTwo {
+  margin: 100px 0 50px 0;
+}
+
+.favMapContainer {
+  display: flex;
+  box-shadow: 10px 10px 30px #0b1a1f;
+  width: 75%;
+}
+
+.favBoxOne {
+  background-color: white;
+}
+
+.favBoxTwo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding-left: 50px;
+}
+
+.favBoxThree {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.favSmallBoxOne {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 50px;
+}
+
+.favSmallBoxTwo {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 50px;
+  gap: 50px;
+}
+
+.favAmount {
+  display: flex;
+  border: 2px solid #0b1a1f;
+}
+
+.favMinus {
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.favNumber {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.favPlus {
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.favAdd {
+  text-decoration: none;
+  background-color: #c81e3a;
+  color: rgb(165, 165, 165);
+  padding: 5px 15px;
+  font-size: 1.2rem;
+  transition: 0.7s;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.favAdd:hover {
+  color: white;
+}

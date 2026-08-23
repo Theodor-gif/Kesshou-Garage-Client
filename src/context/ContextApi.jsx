@@ -265,6 +265,7 @@ function ContextProvider({ children }) {
         AddFav,
         fav,
         setFav,
+        token,
       }}
     >
       {children}

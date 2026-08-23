@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  z-index: 999;
 }
 
 .partsContTitle {
@@ -107,6 +108,22 @@
 
 .partsMenu {
   display: none !important;
+}
+
+.partsItemContainer {
+  position: relative;
+}
+
+.partsHurt {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {

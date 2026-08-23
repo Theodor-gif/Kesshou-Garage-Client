@@ -5,6 +5,8 @@ import { contextData } from "../context/ContextApi.jsx";
 import style from "../css/parts.module.css";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { motion } from "motion/react";
 
 function Parts() {
   const { parts, AddFav } = useContext(contextData);
@@ -57,6 +59,14 @@ function Parts() {
     }
   });
 
+  function closeMenuIfMobile() {
+    if (window.innerWidth <= 480) {
+      setMenu(false);
+    } else if (window.innerWidth > 480) {
+      setMenu(true);
+    }
+  }
+
   function getAllParts() {
     setAll(true);
     setCoilover(false);
@@ -65,7 +75,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
-    setMenu(false);
+    closeMenuIfMobile();
   }
 
   function getCoilovers() {
@@ -76,7 +86,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
-    setMenu(false);
+    closeMenuIfMobile();
   }
 
   function getFlywheels() {
@@ -87,7 +97,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
-    setMenu(false);
+    closeMenuIfMobile();
   }
 
   function getBrakings() {
@@ -98,7 +108,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(false);
-    setMenu(false);
+    closeMenuIfMobile();
   }
 
   function getWheels() {
@@ -109,7 +119,7 @@ function Parts() {
     setLighting(false);
     setSteering(false);
     setWheel(true);
-    setMenu(false);
+    closeMenuIfMobile();
   }
 
   function getLightings() {
@@ -120,7 +130,7 @@ function Parts() {
     setLighting(true);
     setSteering(false);
     setWheel(false);
-    setMenu(false);
+    closeMenuIfMobile();
   }
 
   function getSteerings() {
@@ -131,7 +141,7 @@ function Parts() {
     setLighting(false);
     setSteering(true);
     setWheel(false);
-    setMenu(false);
+    closeMenuIfMobile();
   }
 
   return (
@@ -178,10 +188,31 @@ function Parts() {
           <div className={style.partsContainerIn}>
             {all &&
               parts.map((part) => (
-                <div key={part._id}>
-                  <button onClick={() => AddFav(part._id)}>Add</button>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: "all", once: true }}
+                  transition={{ duration: 2.5 }}
+                  key={part._id}
+                  className={style.partsItemContainer}
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 1 }}
+                    className={style.partsHurt}
+                  >
+                    <FavoriteIcon
+                      onClick={() => AddFav(part._id)}
+                      sx={{
+                        color: "red",
+                        backgroundColor: "transparent",
+                        cursor: "pointer",
+                        fontSize: 30,
+                        border: "none",
+                      }}
+                    />
+                  </motion.button>
                   <Link to={`/partsdetail/${part._id}`}>
-                    {" "}
                     <div className={style.partsMap}>
                       <div
                         className={style.partsImageContainer}
@@ -200,139 +231,283 @@ function Parts() {
                       </div>
                     </div>
                   </Link>
-                </div>
+                </motion.div>
               ))}
             {flywheel &&
               flywheels.map((part) => (
-                <Link to={`/partsdetail/${part._id}`} key={part._id}>
-                  <div className={style.partsMap}>
-                    <div
-                      className={style.partsImageContainer}
-                      style={{
-                        backgroundImage: `url(${part.image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        width: "250px",
-                        height: "250px",
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: "all", once: true }}
+                  transition={{ duration: 2.5 }}
+                  key={part._id}
+                  className={style.partsItemContainer}
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 1 }}
+                    onClick={() => AddFav(part._id)}
+                    className={style.partsHurt}
+                    type="button"
+                  >
+                    <FavoriteIcon
+                      sx={{
+                        color: "red",
+                        backgroundColor: "transparent",
+                        fontSize: 30,
                       }}
-                    ></div>
-                    <div className={style.partsProDiv}>
-                      <h2 className={style.partName}>{part.name}</h2>
-                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    />
+                  </motion.button>
+                  <Link to={`/partsdetail/${part._id}`}>
+                    <div className={style.partsMap}>
+                      <div
+                        className={style.partsImageContainer}
+                        style={{
+                          backgroundImage: `url(${part.image})`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          width: "250px",
+                          height: "250px",
+                        }}
+                      ></div>
+                      <div className={style.partsProDiv}>
+                        <h2 className={style.partName}>{part.name}</h2>
+                        <p className={style.partPrice}>{part.price} &euro;</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
             {coilover &&
               coilovers.map((part) => (
-                <Link to={`/partsdetail/${part._id}`} key={part._id}>
-                  <div className={style.partsMap}>
-                    <div
-                      className={style.partsImageContainer}
-                      style={{
-                        backgroundImage: `url(${part.image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        width: "250px",
-                        height: "250px",
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: "all", once: true }}
+                  transition={{ duration: 2.5 }}
+                  key={part._id}
+                  className={style.partsItemContainer}
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 1 }}
+                    onClick={() => AddFav(part._id)}
+                    className={style.partsHurt}
+                    type="button"
+                  >
+                    <FavoriteIcon
+                      sx={{
+                        color: "red",
+                        backgroundColor: "transparent",
+                        fontSize: 30,
                       }}
-                    ></div>
-                    <div className={style.partsProDiv}>
-                      <h2 className={style.partName}>{part.name}</h2>
-                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    />
+                  </motion.button>
+                  <Link to={`/partsdetail/${part._id}`}>
+                    <div className={style.partsMap}>
+                      <div
+                        className={style.partsImageContainer}
+                        style={{
+                          backgroundImage: `url(${part.image})`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          width: "250px",
+                          height: "250px",
+                        }}
+                      ></div>
+                      <div className={style.partsProDiv}>
+                        <h2 className={style.partName}>{part.name}</h2>
+                        <p className={style.partPrice}>{part.price} &euro;</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
             {braking &&
               brakings.map((part) => (
-                <Link to={`/partsdetail/${part._id}`} key={part._id}>
-                  <div className={style.partsMap}>
-                    <div
-                      className={style.partsImageContainer}
-                      style={{
-                        backgroundImage: `url(${part.image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        width: "250px",
-                        height: "250px",
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: "all", once: true }}
+                  transition={{ duration: 2.5 }}
+                  key={part._id}
+                  className={style.partsItemContainer}
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 1 }}
+                    onClick={() => AddFav(part._id)}
+                    className={style.partsHurt}
+                    type="button"
+                  >
+                    <FavoriteIcon
+                      sx={{
+                        color: "red",
+                        backgroundColor: "transparent",
+                        fontSize: 30,
                       }}
-                    ></div>
-                    <div className={style.partsProDiv}>
-                      <h2 className={style.partName}>{part.name}</h2>
-                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    />
+                  </motion.button>
+                  <Link to={`/partsdetail/${part._id}`}>
+                    <div className={style.partsMap}>
+                      <div
+                        className={style.partsImageContainer}
+                        style={{
+                          backgroundImage: `url(${part.image})`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          width: "250px",
+                          height: "250px",
+                        }}
+                      ></div>
+                      <div className={style.partsProDiv}>
+                        <h2 className={style.partName}>{part.name}</h2>
+                        <p className={style.partPrice}>{part.price} &euro;</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
             {wheel &&
               wheels.map((part) => (
-                <Link to={`/partsdetail/${part._id}`} key={part._id}>
-                  <div className={style.partsMap}>
-                    <div
-                      className={style.partsImageContainer}
-                      style={{
-                        backgroundImage: `url(${part.image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        width: "250px",
-                        height: "250px",
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: "all", once: true }}
+                  transition={{ duration: 2.5 }}
+                  key={part._id}
+                  className={style.partsItemContainer}
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 1 }}
+                    onClick={() => AddFav(part._id)}
+                    className={style.partsHurt}
+                    type="button"
+                  >
+                    <FavoriteIcon
+                      sx={{
+                        color: "red",
+                        backgroundColor: "transparent",
+                        fontSize: 30,
                       }}
-                    ></div>
-                    <div className={style.partsProDiv}>
-                      <h2 className={style.partName}>{part.name}</h2>
-                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    />
+                  </motion.button>
+                  <Link to={`/partsdetail/${part._id}`}>
+                    <div className={style.partsMap}>
+                      <div
+                        className={style.partsImageContainer}
+                        style={{
+                          backgroundImage: `url(${part.image})`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          width: "250px",
+                          height: "250px",
+                        }}
+                      ></div>
+                      <div className={style.partsProDiv}>
+                        <h2 className={style.partName}>{part.name}</h2>
+                        <p className={style.partPrice}>{part.price} &euro;</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
             {lighting &&
               lightings.map((part) => (
-                <Link to={`/partsdetail/${part._id}`} key={part._id}>
-                  <div className={style.partsMap}>
-                    <div
-                      className={style.partsImageContainer}
-                      style={{
-                        backgroundImage: `url(${part.image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        width: "250px",
-                        height: "250px",
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: "all", once: true }}
+                  transition={{ duration: 2.5 }}
+                  key={part._id}
+                  className={style.partsItemContainer}
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 1 }}
+                    onClick={() => AddFav(part._id)}
+                    className={style.partsHurt}
+                    type="button"
+                  >
+                    <FavoriteIcon
+                      sx={{
+                        color: "red",
+                        backgroundColor: "transparent",
+                        fontSize: 30,
                       }}
-                    ></div>
-                    <div className={style.partsProDiv}>
-                      <h2 className={style.partName}>{part.name}</h2>
-                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    />
+                  </motion.button>
+                  <Link to={`/partsdetail/${part._id}`}>
+                    <div className={style.partsMap}>
+                      <div
+                        className={style.partsImageContainer}
+                        style={{
+                          backgroundImage: `url(${part.image})`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          width: "250px",
+                          height: "250px",
+                        }}
+                      ></div>
+                      <div className={style.partsProDiv}>
+                        <h2 className={style.partName}>{part.name}</h2>
+                        <p className={style.partPrice}>{part.price} &euro;</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
             {steering &&
               steerings.map((part) => (
-                <Link to={`/partsdetail/${part._id}`} key={part._id}>
-                  <div className={style.partsMap}>
-                    <div
-                      className={style.partsImageContainer}
-                      style={{
-                        backgroundImage: `url(${part.image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        width: "250px",
-                        height: "250px",
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ amount: "all", once: true }}
+                  transition={{ duration: 2.5 }}
+                  key={part._id}
+                  className={style.partsItemContainer}
+                >
+                  <motion.button
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 1 }}
+                    onClick={() => AddFav(part._id)}
+                    className={style.partsHurt}
+                    type="button"
+                  >
+                    <FavoriteIcon
+                      sx={{
+                        color: "red",
+                        backgroundColor: "transparent",
+                        fontSize: 30,
                       }}
-                    ></div>
-                    <div className={style.partsProDiv}>
-                      <h2 className={style.partName}>{part.name}</h2>
-                      <p className={style.partPrice}>{part.price} &euro;</p>
+                    />
+                  </motion.button>
+                  <Link to={`/partsdetail/${part._id}`}>
+                    <div className={style.partsMap}>
+                      <div
+                        className={style.partsImageContainer}
+                        style={{
+                          backgroundImage: `url(${part.image})`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "center",
+                          backgroundRepeat: "no-repeat",
+                          width: "250px",
+                          height: "250px",
+                        }}
+                      ></div>
+                      <div className={style.partsProDiv}>
+                        <h2 className={style.partName}>{part.name}</h2>
+                        <p className={style.partPrice}>{part.price} &euro;</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))}
           </div>
         </section>

@@ -109,7 +109,7 @@ function NavBar() {
           </Link>
           <Link
             className={style.pop2Item}
-            to="/partsdetail"
+            to="/about"
             onClick={() => setMenu((prev) => !prev)}
           >
             ABOUT US

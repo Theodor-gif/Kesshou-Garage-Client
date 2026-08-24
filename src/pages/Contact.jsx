@@ -85,14 +85,25 @@ function Contact() {
               How can we help you?
             </label>
             <select className={style.contactInput} id="reason">
-              <option value="">--Please choose an option--</option>
-              <option value="What can I do if I can't find the product I'm looking for?">
+              <option className={style.contactOpt} value="">
+                --Please choose an option--
+              </option>
+              <option
+                className={style.contactOpt}
+                value="What can I do if I can't find the product I'm looking for?"
+              >
                 What can I do if I can't find the product I'm looking for ?
               </option>
-              <option value="How can I save the products I like to find them later?">
+              <option
+                className={style.contactOpt}
+                value="How can I save the products I like to find them later?"
+              >
                 How can I save the products I like to find them later ?
               </option>
-              <option value="A product does not have the purchase option. Why is this happening? What can I do?">
+              <option
+                className={style.contactOpt}
+                value="A product does not have the purchase option. Why is this happening? What can I do?"
+              >
                 A product does not have the purchase option. Why is this
                 happening? What can I do ?
               </option>
@@ -108,8 +119,8 @@ function Contact() {
               cols="50"
             ></textarea>
             <div className={style.contactCheck}>
-              <input c id="check-box" type="checkbox" name="check-box" />
-              <label className={style.contactLabel} for="check-box">
+              <input id="check-box" type="checkbox" name="check-box" />
+              <label className={style.contactLabel} htmlFor="check-box">
                 I agree to the processing of my personal data in accordance with
                 the Privacy Policy .
               </label>

@@ -145,7 +145,7 @@
 .favAdd {
   text-decoration: none;
   background-color: #c81e3a;
-  color: rgb(165, 165, 165);
+  color: white; /* fixed globally, not just on mobile */
   padding: 5px 15px;
   font-size: 1.2rem;
   transition: 0.7s;
@@ -158,5 +158,88 @@
 }
 
 .favAdd:hover {
-  color: white;
+  opacity: 0.85;
+}
+
+.favAddWide {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .favContainer {
+    overflow-x: hidden;
+  }
+  .favNoFav {
+    margin-top: 50px;
+  }
+  .favTitle {
+    font-size: 2rem;
+  }
+  .favParagraph {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+  }
+  .favTitleTwo {
+    font-size: 1.5rem;
+  }
+  .favMapContainer {
+    flex-direction: column;
+  }
+  .favBoxOne {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20px 0;
+    align-items: center;
+  }
+  .favBoxTwo {
+    padding: 5px 0 5px 20px;
+  }
+  .favBoxThree {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  .favSmallBoxOne {
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    padding-right: 0;
+  }
+  .favAddWide {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    gap: 8px;
+    width: 90%;
+    margin: 0 auto 0 auto;
+  }
+  .favSmallBoxTwo {
+    flex: 1;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .favAmount {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+  }
+  .favAdd {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    gap: 6px;
+    width: 90%;
+    margin: 0 auto;
+  }
 }

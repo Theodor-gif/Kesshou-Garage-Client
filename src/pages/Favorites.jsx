@@ -102,7 +102,7 @@ function Favorites() {
                       </button>
                     </div>
                     <button
-                      className={style.favAdd}
+                      className={`${style.favAdd} ${style.favAddWide}`}
                       onClick={() =>
                         addToCart(element._id, getQuantity(element._id))
                       }

@@ -215,6 +215,7 @@
   padding: 12.5px;
   border: none;
   border-radius: 20px;
+  width: 50%;
 }
 
 .partsDeCommentSubmit {
@@ -257,7 +258,8 @@
 }
 
 @media (max-width: 480px) {
-  .partDetailInfo {
+  .partsDetailMain {
+    overflow-x: hidden;
   }
   .partDetailContInfo {
     flex-direction: column;
@@ -279,5 +281,9 @@
   }
   .partsDetailbtnContainer {
     rotate: 90deg;
+  }
+
+  .partsTextarea {
+    width: 85%;
   }
 }

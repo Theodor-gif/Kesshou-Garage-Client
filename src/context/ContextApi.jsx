@@ -30,6 +30,7 @@ function ContextProvider({ children }) {
   const [comments, setComments] = useState([]);
   const [fav, setFav] = useState([]);
   const [menu, setMenu] = useState(false);
+  const [popUp, setPopUp] = useState(false);
 
   function registrationHandle() {
     setRegistration(false);
@@ -268,6 +269,8 @@ function ContextProvider({ children }) {
         token,
         menu,
         setMenu,
+        popUp,
+        setPopUp,
       }}
     >
       {children}

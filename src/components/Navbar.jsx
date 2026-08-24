@@ -13,8 +13,7 @@ import { useState, useContext } from "react";
 import { contextData } from "../context/ContextApi.jsx";
 
 function NavBar() {
-  const [popUp, setPopUp] = useState(false);
-  const { userName, logoutUser, cart, fav, menu, setMenu } =
+  const { userName, logoutUser, cart, fav, menu, setMenu, setPopUp, popUp } =
     useContext(contextData);
 
   const cartItemCount =

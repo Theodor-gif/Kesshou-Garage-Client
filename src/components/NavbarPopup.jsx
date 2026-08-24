@@ -4,7 +4,7 @@ import { contextData } from "../context/ContextApi";
 import { Link } from "react-router-dom";
 
 function NavbarPopup() {
-  const { cars } = useContext(contextData);
+  const { cars, setPopUp } = useContext(contextData);
 
   if (!cars || cars.length === 0) {
     return <h1>Loading ...</h1>;
@@ -17,6 +17,7 @@ function NavbarPopup() {
           key={car._id}
           className={style.navbarPopLink}
           to={`/models/${car._id}`}
+          onClick={() => setPopUp((prev) => !prev)}
         >
           <img src={car.photos[0].url} alt="" width="75px" />
           <div className={style.navbarPopDetail}>

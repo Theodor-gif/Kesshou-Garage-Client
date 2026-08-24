@@ -29,6 +29,7 @@ function ContextProvider({ children }) {
   const [text, setText] = useState("");
   const [comments, setComments] = useState([]);
   const [fav, setFav] = useState([]);
+  const [menu, setMenu] = useState(false);
 
   function registrationHandle() {
     setRegistration(false);
@@ -139,6 +140,7 @@ function ContextProvider({ children }) {
     localStorage.removeItem("token");
     setCart(null);
     setUserName("");
+    setMenu((prev) => !prev);
     navigate("/");
   }
 
@@ -223,8 +225,6 @@ function ContextProvider({ children }) {
     getParts();
   }, []);
 
-  console.log(fav);
-
   return (
     <contextData.Provider
       value={{
@@ -266,6 +266,8 @@ function ContextProvider({ children }) {
         fav,
         setFav,
         token,
+        menu,
+        setMenu,
       }}
     >
       {children}

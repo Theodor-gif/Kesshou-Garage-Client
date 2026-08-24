@@ -14,8 +14,8 @@ import { contextData } from "../context/ContextApi.jsx";
 
 function NavBar() {
   const [popUp, setPopUp] = useState(false);
-  const { userName, logoutUser, cart, fav } = useContext(contextData);
-  const [menu, setMenu] = useState(false);
+  const { userName, logoutUser, cart, fav, menu, setMenu } =
+    useContext(contextData);
 
   const cartItemCount =
     cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
@@ -114,11 +114,7 @@ function NavBar() {
           >
             ABOUT US
           </Link>
-          <button
-            className={style.pop2Item}
-            onClick={logoutUser}
-            onClick={() => setMenu((prev) => !prev)}
-          >
+          <button className={style.pop2Item} onClick={logoutUser}>
             LOG OUT
           </button>
         </section>

@@ -192,7 +192,7 @@ function Parts() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ amount: "all", once: true }}
-                  transition={{ duration: 2.5 }}
+                  transition={{ duration: 1 }}
                   key={part._id}
                   className={style.partsItemContainer}
                 >
@@ -239,7 +239,7 @@ function Parts() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ amount: "all", once: true }}
-                  transition={{ duration: 2.5 }}
+                  transition={{ duration: 1 }}
                   key={part._id}
                   className={style.partsItemContainer}
                 >
@@ -285,7 +285,7 @@ function Parts() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ amount: "all", once: true }}
-                  transition={{ duration: 2.5 }}
+                  transition={{ duration: 1 }}
                   key={part._id}
                   className={style.partsItemContainer}
                 >
@@ -331,7 +331,7 @@ function Parts() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ amount: "all", once: true }}
-                  transition={{ duration: 2.5 }}
+                  transition={{ duration: 1 }}
                   key={part._id}
                   className={style.partsItemContainer}
                 >
@@ -377,7 +377,7 @@ function Parts() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ amount: "all", once: true }}
-                  transition={{ duration: 2.5 }}
+                  transition={{ duration: 1 }}
                   key={part._id}
                   className={style.partsItemContainer}
                 >
@@ -423,7 +423,7 @@ function Parts() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ amount: "all", once: true }}
-                  transition={{ duration: 2.5 }}
+                  transition={{ duration: 1 }}
                   key={part._id}
                   className={style.partsItemContainer}
                 >
@@ -469,7 +469,7 @@ function Parts() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ amount: "all", once: true }}
-                  transition={{ duration: 2.5 }}
+                  transition={{ duration: 1 }}
                   key={part._id}
                   className={style.partsItemContainer}
                 >

@@ -9,15 +9,54 @@ import MenuIcon from "@mui/icons-material/Menu";
 import style from "../css/navbar.module.css";
 import { Link } from "react-router-dom";
 import NavbarPopup from "../components/NavbarPopup.jsx";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { contextData } from "../context/ContextApi.jsx";
+import { motion } from "motion/react";
 
 function NavBar() {
-  const { userName, logoutUser, cart, fav, menu, setMenu, setPopUp, popUp } =
-    useContext(contextData);
+  const {
+    userName,
+    logoutUser,
+    cart,
+    fav,
+    menu,
+    setMenu,
+    setPopUp,
+    popUp,
+    parts,
+  } = useContext(contextData);
+
+  const [input, setInput] = useState(false);
+  const [search, setSearch] = useState("");
+  const [data, setData] = useState("");
+  const [filtered, setFiltered] = useState([]);
 
   const cartItemCount =
     cart?.items?.reduce((sum, item) => sum + item.quantity, 0) || 0;
+
+  function inputOpen() {
+    setInput((prev) => !prev);
+    setFiltered([]); // clear stale results when toggling
+  }
+
+  function getSearch(e) {
+    const item = e.target.value;
+    setSearch(item);
+
+    if (item.trim() === "") {
+      setFiltered([]); // don't show everything when input is empty
+      return;
+    }
+
+    const newfilter = parts.filter((elements) =>
+      elements.categoryName
+        .toLowerCase()
+        .trim()
+        .includes(item.toLowerCase().trim()),
+    );
+
+    setFiltered(newfilter);
+  }
 
   return (
     <nav className={style.navbar}>
@@ -26,7 +65,48 @@ function NavBar() {
           <img className={style.logo} src={logo} alt="logo" />
         </section>
         <section className={style.nav2}>
+          {input && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ amount: "all", once: true }}
+              transition={{ duration: 1 }}
+              className={style.homeInputContainer}
+            >
+              <label htmlFor="search"></label>
+              <input
+                className={style.homeInput}
+                id="search"
+                type="text"
+                name="search"
+                value={search}
+                onChange={(e) => getSearch(e)}
+              />
+            </motion.div>
+          )}
+          {filtered.length > 0 && (
+            <div className={style.navAp}>
+              {filtered.map((item) => (
+                <Link
+                  key={item._id}
+                  to={`/partsdetail/${item._id}`}
+                  className={style.searchResultItem}
+                  onClick={() => {
+                    setFiltered([]);
+                    setSearch("");
+                  }}
+                >
+                  <div>
+                    <img src={item.image} alt="" width="30" />
+                    <p>{item.name}</p>
+                    <p>{item.price} &euro;</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
           <SearchIcon
+            onClick={() => inputOpen()}
             className={style.SearchIcon}
             sx={{ fontSize: 30, color: "#b8b8b8" }}
           />

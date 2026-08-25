@@ -14,17 +14,11 @@ A simple full-stack E-Commerce shop application built with React, Express, Mongo
 
 ## Tech Stack
 
-**Backend**
-
-- [Express](https://expressjs.com/) — web server and routing
-- [Mongoose](https://mongoosejs.com/) — MongoDB object modeling
-- [Morgan](https://www.npmjs.com/package/morgan) — HTTP request logging
-- [dotenv](https://www.npmjs.com/package/dotenv) — environment variable management
-
-**Frontend**
-
-- React , CSS module and Javascript
-- `axios` API for communicating with the backend
+- React, CSS Modules, JavaScript
+- [react-router-dom](https://reactrouter.com/) — client-side routing
+- [axios](https://axios-http.com/) — API communication with the backend
+- [MUI](https://mui.com/) (`@mui/material`, `@mui/icons-material`) — UI components and icons
+- [Motion](https://motion.dev/) — animations
 
 ## Project Structure
 

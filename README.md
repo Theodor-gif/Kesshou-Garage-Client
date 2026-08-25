@@ -1,16 +1,98 @@
-# React + Vite
+# Kesshou Garage - E-Commerce Drift car parts shop App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple full-stack E-Commerce shop application built with React, Express, MongoDB Atlas (via Mongoose).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- View all Drift car products
+- Add a product at the cart
+- Add a product at favorite list
+- Create a User
+- Create a comment for a product
+- Delete a product from the cart
+- Delete a product from the favorite list
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Backend**
 
-## Expanding the Oxlint configuration
+- [Express](https://expressjs.com/) — web server and routing
+- [Mongoose](https://mongoosejs.com/) — MongoDB object modeling
+- [Morgan](https://www.npmjs.com/package/morgan) — HTTP request logging
+- [dotenv](https://www.npmjs.com/package/dotenv) — environment variable management
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+**Frontend**
+
+- React , CSS module and Javascript
+- `axios` API for communicating with the backend
+
+## Project Structure
+
+```
+Client-project/
+|
+|-- public/
+|   |
+|   |-- brand-companies/
+|   |-- cars/
+|   |__ parts/
+|
+|-- src/
+    |
+    |-- assets/
+    |   |-- Category-images/
+    |   |__ brands/
+    |
+    |-- components/
+    |   |-- Footer.jsx/
+    |   |-- HomeHero.jsx/
+    |   |-- Login.jsx/
+    |   |-- ModelHero.jsx/
+    |   |-- Navbar.jsx/
+    |   |-- NavbarPopup.jsx/
+    |   |-- Registration.jsx/
+    |   |__ ScrollToTop.jsx/
+    |
+    |-- context/
+    |   |__ ContextApi.jsx/
+    |
+    |-- css/
+    |   |-- about.module.css/
+    |   |-- cart.module.css/
+    |   |-- contact.module.css/
+    |   |-- favorite.module.css/
+    |   |-- footer.module.css/
+    |   |-- home.module.css/
+    |   |-- homehero.module.css/
+    |   |-- login.module.css/
+    |   |-- model.module.css/
+    |   |-- navbar.module.css/
+    |   |-- navbarPopup.module.css/
+    |   |-- parts.module.css/
+    |   |-- partsdetail.module.css/
+    |   |-- registerlogin.module.css/
+    |   |__ registration.module.css/
+    |
+    |-- pages/
+    |   |-- About.jsx/
+    |   |-- Cart.jsx/
+    |   |-- Contact.jsx/
+    |   |-- Favorites.jsx/
+    |   |-- Home.jsx/
+    |   |-- Model.jsx
+    |   |-- Parts.jsx/
+    |   |-- PartsDetail.jsx/
+    |   |__ RegisterLogin.jsx/
+    |
+    |-- App.css/
+    |-- App.jsx/
+    |__ main.jsx/
+```
+
+## Environment Variables
+
+| Variable       | Description                         |
+| -------------- | ----------------------------------- |
+| `VITE_API_URL` | Base URL of the backend Express API |
+
+> For backend setup and its environment variables, see the [Server README](https://github.com/Theodor-gif/Kesshou-Garage-Server).

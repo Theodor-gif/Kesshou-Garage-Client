@@ -7,6 +7,7 @@ import style from "../css/partsdetail.module.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useParams, Link } from "react-router-dom";
+import Loading from "./Loading.jsx";
 
 function PartsDetail() {
   const { parts, addToCart, text, setText, reviewSend, commentEach, comments } =
@@ -22,7 +23,7 @@ function PartsDetail() {
   }, [id]);
 
   if (!parts || parts.length === 0) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
 
   const part = parts.find((c) => c._id === id);

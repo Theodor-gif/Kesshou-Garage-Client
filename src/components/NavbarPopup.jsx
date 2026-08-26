@@ -2,12 +2,13 @@ import style from "../css/navbarPopup.module.css";
 import { useContext } from "react";
 import { contextData } from "../context/ContextApi";
 import { Link } from "react-router-dom";
+import Loading from "../pages/Loading.jsx";
 
 function NavbarPopup() {
   const { cars, setPopUp } = useContext(contextData);
 
   if (!cars || cars.length === 0) {
-    return <h1>Loading ...</h1>;
+    return <Loading />;
   }
 
   return (

@@ -1,0 +1,115 @@
+.ContMain {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0b1a1f;
+  height: 100vh;
+}
+
+.name {
+  margin: 500px 0 150px 0;
+  font-size: 3rem;
+  color: #00e5ff;
+  border-bottom: 3px solid #e0e0e0;
+  width: 40%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.loadingContainer {
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 2px 2px 30px #00e5ff;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #05080a;
+  color: #d3e5f1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loadingTitle {
+  width: 88.5%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.loadingNum {
+  width: 88.5%;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+.rangeInput {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  margin: 0 auto 30px auto;
+}
+
+/* Track (Chrome, Safari, Edge) */
+.rangeInput::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: #e0e0e0;
+}
+
+/* Thumb (Chrome, Safari, Edge) */
+.rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00e5ff;
+  cursor: pointer;
+  margin-top: -5px; /* centers thumb on track */
+}
+
+/* Track (Firefox) */
+.rangeInput::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: #e0e0e0;
+}
+
+/* Thumb (Firefox) */
+.rangeInput::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00e5ff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .ContMain {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b1a1f;
+    height: 100vh;
+  }
+
+  .name {
+    margin: 0 0 150px 0;
+    font-size: 3rem;
+    color: #00e5ff;
+    border-bottom: 3px solid #e0e0e0;
+    width: 40%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+}

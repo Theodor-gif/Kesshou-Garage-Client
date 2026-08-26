@@ -21,6 +21,7 @@ import LightingImage from "../assets/Category-images/Lighting-image.png";
 import SteeringImage from "../assets/Category-images/Steering-image.png";
 import WheelImage from "../assets/Category-images/Wheel-image.png";
 import Logo from "../assets/kessho-icon.png";
+import Loading from "./Loading.jsx";
 
 function Home() {
   const { cars } = useContext(contextData);
@@ -55,7 +56,7 @@ function Home() {
   ];
 
   if (!cars || cars.length < 5) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
 
   const brandFour = cars[3].brand;

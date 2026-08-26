@@ -3,6 +3,7 @@ import { contextData } from "../context/ContextApi";
 import { Link } from "react-router-dom";
 import style from "../css/homehero.module.css";
 import arrow from "../assets/arrow-18-512.png";
+import Loading from "../pages/Loading";
 
 function HomeHero() {
   const { cars } = useContext(contextData);
@@ -24,7 +25,7 @@ function HomeHero() {
   }, [cars]);
 
   if (!cars || cars.length < 3) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
 
   const car = cars[currentIndex];

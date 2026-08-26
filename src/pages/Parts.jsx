@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { motion } from "motion/react";
+import Loading from "./Loading.jsx";
 
 function Parts() {
   const { parts, AddFav } = useContext(contextData);
@@ -20,7 +21,7 @@ function Parts() {
   const [menu, setMenu] = useState(true);
 
   if (!parts || parts.lenght === 0) {
-    return <h1>Loading ...</h1>;
+    return <Loading />;
   }
 
   let coilovers = parts.filter((element) => {

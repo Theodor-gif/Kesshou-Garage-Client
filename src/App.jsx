@@ -12,6 +12,7 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import style from "./css/app.module.css";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import Loading from "./pages/Loading.jsx";
 
 function App() {
   const [showArrow, setShowArrow] = useState(false);
@@ -52,6 +53,7 @@ function App() {
         <Route path="/partsdetail/:id" element={<PartsDetail />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/loading" element={<Loading />}></Route>
       </Routes>
     </main>
   );

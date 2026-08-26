@@ -95,23 +95,26 @@
   align-items: end;
 }
 
-.homeInputContainer {
-  border: 1px solid green;
-}
-
 .navAp {
   height: 200px;
   overflow-y: auto;
   scroll-behavior: smooth;
   position: absolute;
-  width: 60%;
-  background: #fff;
+  width: 40%;
+  left: calc((100% - 40%) / 2);
+  top: 210px; /* just below the input, not 200px down */
+  background: #d3e5f1;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 10;
-  top: 200px;
-  left: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 10px 10px 40px #0b1a1f;
+  border: 10px solid #d3e5f1;
+  outline: 2px solid #343e4340;
+  outline-offset: 1px;
 }
 
 /* optional: nicer scrollbar styling */
@@ -121,6 +124,30 @@
 .navAp::-webkit-scrollbar-thumb {
   background: #b8b8b8;
   border-radius: 3px;
+}
+
+.searchResultItem {
+  border: 1px solid red;
+  width: 95%;
+  margin: 10px;
+  padding: 5px;
+  color: white;
+  background-color: #343e43;
+  cursor: pointer;
+  height: 40%;
+}
+
+.searchDiv {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.seaarchImg {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
 }
 
 .homeInput {
@@ -214,6 +241,32 @@
     display: flex;
     justify-content: center;
     padding: 15px 0;
+  }
+
+  .homeInputContainer {
+    position: absolute;
+    width: 100%;
+    top: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homeInput {
+    width: 40%;
+    padding: 5px;
+    box-shadow: 10px 10px 40px #0b1a1f;
+    outline: 2px solid #343e4340;
+    border-radius: 10px;
+  }
+  .navAp {
+    top: 270px;
+    width: 95%;
+    left: calc((100% - 95%) / 2);
+  }
+
+  .searchDiv {
+    font-size: 1rem;
   }
 
   .BurgerIcon {

@@ -94,10 +94,11 @@ function NavBar() {
                   onClick={() => {
                     setFiltered([]);
                     setSearch("");
+                    setInput((prev) => !prev);
                   }}
                 >
-                  <div>
-                    <img src={item.image} alt="" width="30" />
+                  <div className={style.searchDiv}>
+                    <img className={style.seaarchImg} src={item.image} alt="" />
                     <p>{item.name}</p>
                     <p>{item.price} &euro;</p>
                   </div>

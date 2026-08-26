@@ -239,6 +239,11 @@
     height: 20px;
   }
 
+  .homeContainerImg {
+    height: 77px;
+    overflow: hidden;
+  }
+
   .homeSectionPart {
     display: flex;
     justify-content: center;

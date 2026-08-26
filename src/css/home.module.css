@@ -261,4 +261,20 @@
   .homeImg {
     width: 125px;
   }
+
+  .homeBrands {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .homeBrandImg {
+    height: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

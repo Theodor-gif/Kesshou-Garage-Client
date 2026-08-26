@@ -149,7 +149,9 @@ function Home() {
         </div>
         <div className={style.homeBrands}>
           {brands.map((brandLogo, index) => (
-            <img key={index} src={brandLogo} width="200" alt="" />
+            <picture key={index} className={style.homeBrandImg}>
+              <img src={brandLogo} alt="Brand logo" width="200" />
+            </picture>
           ))}
         </div>
       </section>

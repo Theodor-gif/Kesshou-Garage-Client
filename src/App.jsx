@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home.jsx";
 import ModelPage from "./pages/Model.jsx";
@@ -10,14 +10,37 @@ import PartsDetail from "./pages/PartsDetail.jsx";
 import ScrollToTop from "../src/components/ScrollToTop.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
-
-import "./App.css";
+import style from "./css/app.module.css";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      setShowArrow(window.scrollY > 300);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
-    <main>
+    <main style={{ position: "relative" }}>
+      {showArrow && (
+        <ArrowCircleUpIcon
+          className={style.scrollTopArrow}
+          onClick={scrollToTop}
+          sx={{
+            color: "#00e5ff",
+            fontSize: 50,
+          }}
+        />
+      )}
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>

@@ -189,6 +189,13 @@ function NavBar() {
           </Link>
           <Link
             className={style.pop2Item}
+            to="/contact"
+            onClick={() => setMenu((prev) => !prev)}
+          >
+            CONTACT US
+          </Link>
+          <Link
+            className={style.pop2Item}
             to="/about"
             onClick={() => setMenu((prev) => !prev)}
           >

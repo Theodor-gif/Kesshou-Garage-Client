@@ -212,6 +212,10 @@
   display: none !important;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 @media (max-width: 480px) {
   .navbar {
     width: 100%;
